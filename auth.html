@@ -39,11 +39,12 @@
   </div>
   <div id="signup-form" class="form hidden">
     <input type="email" id="signup-email" placeholder="Ton email" />
-    <input type="password" id="signup-password" placeholder="Mot de passe (6 caractères min)" />
-    <button onclick="signup()">Créer mon compte</button>
+    <input type="password" id="signup-password" placeholder="Mot de passe (6 caracteres min)" />
+    <button onclick="signup()">Creer mon compte</button>
     <div class="msg hidden" id="signup-msg"></div>
   </div>
 </div>
+
 <script>
 function showTab(tab) {
   document.getElementById('login-form').classList.toggle('hidden', tab !== 'login');
@@ -52,13 +53,15 @@ function showTab(tab) {
   document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
 }
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
+
+<script type="module">
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
   const SUPABASE_URL = 'https://icelztsqfgwvsojvkhys.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_XIR8v41IboQjTzGcnd0EAg_iDH5Q_1F';
-  const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  async function login() {
+  window.login = async function() {
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
     const msg = document.getElementById('login-msg');
@@ -74,7 +77,7 @@ function showTab(tab) {
     }
   }
 
-  async function signup() {
+  window.signup = async function() {
     const email = document.getElementById('signup-email').value;
     const password = document.getElementById('signup-password').value;
     const msg = document.getElementById('signup-msg');
