@@ -31,16 +31,12 @@
     <button class="tab active" id="tab-login" onclick="showTab('login')">Connexion</button>
     <button class="tab" id="tab-signup" onclick="showTab('signup')">Inscription</button>
   </div>
-
-  <!-- CONNEXION -->
   <div id="login-form" class="form">
     <input type="email" id="login-email" placeholder="Ton email" />
     <input type="password" id="login-password" placeholder="Mot de passe" />
     <button onclick="login()">Se connecter</button>
     <div class="msg hidden" id="login-msg"></div>
   </div>
-
-  <!-- INSCRIPTION -->
   <div id="signup-form" class="form hidden">
     <input type="email" id="signup-email" placeholder="Ton email" />
     <input type="password" id="signup-password" placeholder="Mot de passe (6 caractères min)" />
@@ -48,31 +44,19 @@
     <div class="msg hidden" id="signup-msg"></div>
   </div>
 </div>
-
+<script>
+function showTab(tab) {
+  document.getElementById('login-form').classList.toggle('hidden', tab !== 'login');
+  document.getElementById('signup-form').classList.toggle('hidden', tab !== 'signup');
+  document.getElementById('tab-login').classList.toggle('active', tab === 'login');
+  document.getElementById('tab-signup').classList.toggle('active', tab === 'signup');
+}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const SUPABASE_URL = 'https://icelztsqfgwvsojvkhys.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_XIR8v41IboQjTzGcnd0EAg_iDH5Q_1F';
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-  function showTab(tab) {
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
-    const tabLogin = document.getElementById('tab-login');
-    const tabSignup = document.getElementById('tab-signup');
-
-    if (tab === 'login') {
-      loginForm.classList.remove('hidden');
-      signupForm.classList.add('hidden');
-      tabLogin.classList.add('active');
-      tabSignup.classList.remove('active');
-    } else {
-      loginForm.classList.add('hidden');
-      signupForm.classList.remove('hidden');
-      tabLogin.classList.remove('active');
-      tabSignup.classList.add('active');
-    }
-  }
 
   async function login() {
     const email = document.getElementById('login-email').value;
@@ -81,10 +65,10 @@
     msg.classList.remove('hidden', 'error', 'success');
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
-      msg.textContent = '❌ Email ou mot de passe incorrect';
+      msg.textContent = 'Email ou mot de passe incorrect';
       msg.classList.add('error');
     } else {
-      msg.textContent = '✅ Connexion réussie !';
+      msg.textContent = 'Connexion reussie !';
       msg.classList.add('success');
       setTimeout(() => window.location.href = '/', 1000);
     }
@@ -96,21 +80,21 @@
     const msg = document.getElementById('signup-msg');
     msg.classList.remove('hidden', 'error', 'success');
     if (!email || !password) {
-      msg.textContent = '❌ Remplis tous les champs';
+      msg.textContent = 'Remplis tous les champs';
       msg.classList.add('error');
       return;
     }
     if (password.length < 6) {
-      msg.textContent = '❌ Mot de passe trop court (6 caractères min)';
+      msg.textContent = 'Mot de passe trop court (6 caracteres min)';
       msg.classList.add('error');
       return;
     }
     const { error } = await supabase.auth.signUp({ email, password });
     if (error) {
-      msg.textContent = '❌ ' + error.message;
+      msg.textContent = error.message;
       msg.classList.add('error');
     } else {
-      msg.textContent = '✅ Compte créé ! Vérifie ton email pour confirmer.';
+      msg.textContent = 'Compte cree ! Verifie ton email pour confirmer.';
       msg.classList.add('success');
     }
   }
