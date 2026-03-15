@@ -396,7 +396,7 @@
     font-size:0.7rem; font-weight:600;
   }
   .profile-dropdown {
-    position:absolute; top:calc(100% + 8px); right:0;
+    position:fixed; top:60px; right:12px;
     background:var(--card); border:1px solid var(--border);
     border-radius:12px; padding:8px; min-width:200px;
     z-index:200; display:none; flex-direction:column; gap:4px;
@@ -471,7 +471,6 @@
   <button class="nav-btn" onclick="showExtra('chat')">🤖 Demander à l'IA</button>
   <div class="profile-btn" onclick="toggleProfileMenu()" id="profile-btn">
     <div class="profile-avatar" id="profile-avatar">?</div>
-    <span id="profile-label">Mon compte</span>
     <div class="profile-dropdown" id="profile-dropdown">
       <div class="profile-email" id="profile-email">Non connecte</div>
       <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
