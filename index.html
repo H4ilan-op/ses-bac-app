@@ -83,6 +83,42 @@
   }
   .nav-btn:hover, .nav-btn.active { border-color:var(--accent1); color:var(--accent1); background:rgba(124,106,247,0.1); }
 
+  /* NAV MOBILE */
+  .hamburger {
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    background:none; border:1px solid var(--border); border-radius:8px;
+    padding:7px 9px; cursor:pointer; margin-left:auto; flex-shrink:0;
+  }
+  .hamburger span {
+    display:block; width:18px; height:2px; background:var(--muted);
+    border-radius:2px; transition:all .25s;
+  }
+  .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity:0; }
+  .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+  .nav-links {
+    display:flex; align-items:center; gap:8px; flex-wrap:nowrap;
+  }
+
+  @media(max-width:768px) {
+    nav { padding:10px 16px; gap:10px; flex-wrap:nowrap; }
+    .nav-links {
+      display:none; flex-direction:column; align-items:stretch;
+      position:fixed; top:57px; left:0; right:0;
+      background:var(--nav-bg); backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+      padding:12px 16px 16px; gap:6px; z-index:99;
+    }
+    .nav-links.open { display:flex; }
+    .nav-links .nav-btn {
+      text-align:left; padding:10px 16px; border-radius:10px;
+      font-size:0.85rem; width:100%;
+    }
+    .hamburger { display:flex; }
+    .profile-btn { margin-left:0; }
+  }
+
   /* HERO */
   .hero {
     padding:60px 24px 40px;
@@ -431,13 +467,27 @@
       <text x="120" y="40" font-family="Georgia,serif" font-size="13" font-weight="700" fill="#6af7c2" letter-spacing="1">BAC</text>
     </svg>
   </h1>
-  <button class="nav-btn active" onclick="showHome()">Accueil</button>
-  <button class="nav-btn" onclick="showSeq(1)">Séq. 1 — Croissance</button>
-  <button class="nav-btn" onclick="showSeq(2)">Séq. 2 — Environnement</button>
-  <button class="nav-btn" onclick="showSeq(3)">Séq. 3 — Engagement</button>
-  <button class="nav-btn" onclick="showSeq(4)">Séq. 4 — Commerce int.</button>
-  <button class="nav-btn" onclick="showSeq(5)">Séq. 5 — Société française</button>
-  <button class="nav-btn" onclick="showExtra('methodo')">📐 Méthodo</button>
+
+  <!-- Toujours visibles -->
+  <button class="nav-btn active" id="btn-accueil" onclick="showHome();closeNav()">Accueil</button>
+
+  <!-- Séquences : dans le hamburger sur mobile -->
+  <div class="nav-links" id="nav-links">
+    <button class="nav-btn" onclick="showSeq(1);closeNav()">Séq. 1 — Croissance</button>
+    <button class="nav-btn" onclick="showSeq(2);closeNav()">Séq. 2 — Environnement</button>
+    <button class="nav-btn" onclick="showSeq(3);closeNav()">Séq. 3 — Engagement</button>
+    <button class="nav-btn" onclick="showSeq(4);closeNav()">Séq. 4 — Commerce int.</button>
+    <button class="nav-btn" onclick="showSeq(5);closeNav()">Séq. 5 — Société française</button>
+  </div>
+
+  <!-- HAMBURGER (mobile uniquement) -->
+  <button class="hamburger" id="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Toujours visible -->
+  <button class="nav-btn" onclick="showExtra('methodo');closeNav()">📐 Méthodo</button>
+
   <div class="profile-btn" onclick="toggleProfileMenu()" id="profile-btn">
     <div class="profile-avatar" id="profile-avatar">?</div>
     <div class="profile-dropdown" id="profile-dropdown">
@@ -544,6 +594,41 @@
         <div id="prog-total" style="font-size:0.78rem;color:var(--muted);"></div>
       </div>
       <div id="prog-seqs" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- BANNIÈRE CAGNOTTE -->
+  <div style="max-width:900px;margin:12px auto 0;padding:0 24px;">
+    <div style="
+      background: linear-gradient(135deg, rgba(247,194,106,0.08) 0%, rgba(247,106,138,0.08) 100%);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent4);
+      border-radius: 14px;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    ">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span style="font-size:1.4rem;flex-shrink:0;">✨🚀</span>
+        <span style="font-size:0.82rem;color:var(--muted);line-height:1.5;">Ce site est gratuit et le restera. Si il t'a aidé à réviser, tu peux soutenir son créateur ici&nbsp;!</span>
+      </div>
+      <a
+        href="https://www.lepotcommun.fr/cagnotte/solidaire/soutenir-ses-bac-l-appli-de-revision-gratuite-xkyxsq9g"
+        target="_blank"
+        rel="noopener"
+        style="
+          background:rgba(247,194,106,.2); border:1px solid var(--accent4);
+          color:var(--accent4); padding:9px 20px; border-radius:20px;
+          font-size:0.8rem; font-weight:600; text-decoration:none;
+          white-space:nowrap; transition:all .2s; flex-shrink:0;
+          font-family:'DM Sans',sans-serif;
+        "
+        onmouseover="this.style.background='rgba(247,194,106,.35)'"
+        onmouseout="this.style.background='rgba(247,194,106,.2)'"
+      >Soutenir 🙏</a>
     </div>
   </div>
 
@@ -3133,10 +3218,149 @@ function buildBac() {
 
 
 
+// ===== SEARCH =====
+const seqTabMap = {
+  1: { label:'Séq. 1 — Croissance',     color:'var(--accent1)', notionsTab:'notions', auteursTab:'notions' },
+  2: { label:'Séq. 2 — Environnement',  color:'var(--accent3)', notionsTab:'notions', auteursTab:'notions' },
+  3: { label:'Séq. 3 — Engagement',     color:'var(--accent2)', notionsTab:'notions', auteursTab:'notions' },
+  4: { label:'Séq. 4 — Commerce int.',  color:'var(--accent4)', notionsTab:'notions', auteursTab:'notions' },
+  5: { label:'Séq. 5 — Société fr.',    color:'var(--accent5)', notionsTab:'notions', auteursTab:'notions' },
+};
+
+// Index de recherche : construit à partir de definitions + auteurs dans le HTML
+let searchIndex = [];
+
+function buildSearchIndex() {
+  // 1. Notions (depuis definitions JS)
+  for (let s = 1; s <= 5; s++) {
+    if (!definitions[s]) continue;
+    definitions[s].forEach(d => {
+      searchIndex.push({
+        type: 'notion',
+        seq: s,
+        term: d.term,
+        preview: d.def,
+        tab: 'notions',
+        anchor: null,
+      });
+    });
+  }
+
+  // 2. Auteurs (depuis le HTML — on parse les .section-block dans les onglets auteurs)
+  for (let s = 1; s <= 5; s++) {
+    const panel = document.getElementById(`seq${s}-auteurs`);
+    if (!panel) continue;
+    const items = panel.querySelectorAll('li');
+    items.forEach(li => {
+      const strong = li.querySelector('strong');
+      if (!strong) return;
+      searchIndex.push({
+        type: 'auteur',
+        seq: s,
+        term: strong.textContent.trim(),
+        preview: li.textContent.replace(strong.textContent, '').trim().slice(0, 120),
+        tab: 'auteurs',
+        anchor: null,
+      });
+    });
+  }
+}
+
+function highlight(text, query) {
+  if (!query) return text;
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text.replace(new RegExp(`(${escaped})`, 'gi'), '<mark>$1</mark>');
+}
+
+function onSearch(query) {
+  const dropdown = document.getElementById('search-dropdown');
+  query = query.trim();
+
+  if (!query) { dropdown.classList.remove('open'); return; }
+
+  const q = query.toLowerCase();
+  const results = searchIndex.filter(item =>
+    item.term.toLowerCase().includes(q) ||
+    (item.preview && item.preview.toLowerCase().includes(q))
+  ).slice(0, 12);
+
+  if (!results.length) {
+    dropdown.innerHTML = `<div class="search-empty">Aucun résultat pour "<strong>${query}</strong>"</div>`;
+    dropdown.classList.add('open');
+    return;
+  }
+
+  // Grouper par type
+  const notions = results.filter(r => r.type === 'notion');
+  const auteurs = results.filter(r => r.type === 'auteur');
+
+  let html = '';
+  if (notions.length) {
+    html += `<div class="search-section-label">📖 Notions</div>`;
+    notions.forEach(r => {
+      const cfg = seqTabMap[r.seq];
+      html += `<div class="search-result" onclick="goToResult(${r.seq},'${r.tab}')">
+        <div class="sr-term">${highlight(r.term, query)}</div>
+        <div class="sr-meta" style="color:${cfg.color}">${cfg.label}</div>
+        <div class="sr-preview">${highlight(r.preview.slice(0, 100), query)}…</div>
+      </div>`;
+    });
+  }
+  if (auteurs.length) {
+    html += `<div class="search-section-label">👤 Auteurs</div>`;
+    auteurs.forEach(r => {
+      const cfg = seqTabMap[r.seq];
+      html += `<div class="search-result" onclick="goToResult(${r.seq},'${r.tab}')">
+        <div class="sr-term">${highlight(r.term, query)}</div>
+        <div class="sr-meta" style="color:${cfg.color}">${cfg.label}</div>
+        <div class="sr-preview">${highlight(r.preview.slice(0, 100), query)}…</div>
+      </div>`;
+    });
+  }
+
+  dropdown.innerHTML = html;
+  dropdown.classList.add('open');
+}
+
+function goToResult(seq, tab) {
+  // Fermer la recherche
+  document.getElementById('search-dropdown').classList.remove('open');
+  document.getElementById('search-input').value = '';
+
+  // Naviguer vers la séquence + onglet
+  showSeq(seq);
+  setTimeout(() => {
+    const targetPanel = document.getElementById(`seq${seq}-${tab}`);
+    const allPanels = document.querySelectorAll(`#seq${seq} .tab-panel`);
+    const allTabs = document.querySelectorAll(`#seq${seq} .tab-btn`);
+    allPanels.forEach(p => p.classList.remove('active'));
+    allTabs.forEach(t => t.classList.remove('active'));
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+      targetPanel.scrollIntoView({ behavior:'smooth', block:'start' });
+    }
+    // Activer le bon bouton onglet
+    allTabs.forEach(t => {
+      if (t.getAttribute('onclick') && t.getAttribute('onclick').includes(`'${tab}'`)) {
+        t.classList.add('active');
+      }
+    });
+  }, 80);
+}
+
+// Fermer le dropdown si clic ailleurs
+document.addEventListener('click', function(e) {
+  const wrapper = document.getElementById('search-wrapper');
+  if (wrapper && !wrapper.contains(e.target)) {
+    document.getElementById('search-dropdown').classList.remove('open');
+  }
+});
+
 buildDefs();
 buildQuizzes();
 buildVF();
 buildBac();
+buildSearchIndex();
 </script>
 
 <!-- 
@@ -3345,9 +3569,25 @@ function toggleProfileMenu() {
 function closeProfileMenu() {
   document.getElementById('profile-dropdown').classList.remove('open');
 }
+function toggleNav() {
+  const links = document.getElementById('nav-links');
+  const burger = document.getElementById('hamburger');
+  links.classList.toggle('open');
+  burger.classList.toggle('open');
+}
+function closeNav() {
+  document.getElementById('nav-links').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
 document.addEventListener('click', function(e) {
   const btn = document.getElementById('profile-btn');
   if (!btn.contains(e.target)) closeProfileMenu();
+  // Fermer le menu mobile si clic en dehors
+  const nav = document.getElementById('nav-links');
+  const burger = document.getElementById('hamburger');
+  if (nav && !nav.contains(e.target) && burger && !burger.contains(e.target)) {
+    closeNav();
+  }
 });
 function toggleTheme() {
   const html = document.documentElement;
