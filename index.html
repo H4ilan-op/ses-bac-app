@@ -119,6 +119,49 @@
     .profile-btn { margin-left:0; }
   }
 
+  /* AVIS */
+  .avis-section { max-width:900px; margin:20px auto 0; padding:0 24px; }
+  .avis-form-block {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:14px; padding:22px 24px; margin-bottom:16px;
+  }
+  .stars-row { display:flex; gap:6px; margin:10px 0 14px; }
+  .star-btn {
+    background:none; border:none; font-size:1.6rem; cursor:pointer;
+    color:var(--border); transition:color .15s; padding:0; line-height:1;
+  }
+  .star-btn.lit { color:#f7c26a; }
+  .avis-textarea {
+    width:100%; background:var(--surface); border:1px solid var(--border);
+    color:var(--text); padding:10px 14px; border-radius:10px;
+    font-size:0.82rem; font-family:'DM Sans',sans-serif;
+    outline:none; resize:vertical; min-height:80px; transition:.2s;
+  }
+  .avis-textarea:focus { border-color:var(--accent1); }
+  .avis-submit {
+    margin-top:12px; background:rgba(124,106,247,.2); border:1px solid var(--accent1);
+    color:var(--accent1); padding:9px 22px; border-radius:20px; cursor:pointer;
+    font-family:'DM Sans',sans-serif; font-size:0.82rem; font-weight:600; transition:.2s;
+  }
+  .avis-submit:hover { background:rgba(124,106,247,.35); }
+  .avis-submit:disabled { opacity:.5; cursor:default; }
+  .avis-list { display:flex; flex-direction:column; gap:10px; }
+  .avis-card {
+    background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:14px 16px;
+  }
+  .avis-card-header { display:flex; align-items:center; gap:10px; margin-bottom:6px; }
+  .avis-card-avatar {
+    width:28px; height:28px; border-radius:50%;
+    background:rgba(124,106,247,.2); color:var(--accent1);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.72rem; font-weight:700; flex-shrink:0;
+  }
+  .avis-card-meta { font-size:0.72rem; color:var(--muted); }
+  .avis-card-stars { color:#f7c26a; font-size:0.85rem; margin-left:auto; }
+  .avis-card-text { font-size:0.82rem; color:var(--muted); line-height:1.6; }
+  .avis-login-msg { font-size:0.8rem; color:var(--muted); text-align:center; padding:10px 0; }
+
   /* HERO */
   .hero {
     padding:60px 24px 40px;
@@ -563,8 +606,12 @@
       <p>Classes sociales, inégalités, mobilité, stratification sociale</p>
       <span class="badge">Sociologie</span>
     </div>
+    <div class="seq-card" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;cursor:pointer;transition:all .25s;" onclick="showExtra('methodo')" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--accent1)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
+      <div style="font-size:2rem;font-family:'Playfair Display',serif;font-weight:900;margin-bottom:8px;color:var(--accent1);">📐</div>
+      <h3 style="font-size:0.85rem;font-weight:600;line-height:1.4;margin-bottom:6px;">Fiches Méthodologie</h3>
+      <p style="font-size:0.75rem;color:var(--muted);line-height:1.5;">EC1, EC2, EC3 et Dissertation — les méthodes complètes pour chaque exercice du bac</p>
+    </div>
   </div>
-  <!-- BANNIÈRE INFO -->
   <div style="max-width:900px;margin:8px auto 0;padding:0 24px;">
     <div style="
       background: linear-gradient(135deg, rgba(124,106,247,0.08) 0%, rgba(106,247,194,0.08) 100%);
@@ -632,15 +679,38 @@
     </div>
   </div>
 
-  <div class="home-section-title">🛠 Outils & Méthodes</div>
-  <div class="home-extra-grid">
-    <div class="home-extra-card" onclick="showExtra('methodo')">
-      <div class="hec-icon">📐</div>
-      <h3>Fiches Méthodologie</h3>
-      <p>EC1, EC2, EC3 et Dissertation — les méthodes complètes pour chaque exercice du bac</p>
+  <!-- SECTION AVIS -->
+  <div class="avis-section" id="avis-section">
+    <div class="home-section-title" style="padding:24px 0 12px;">💬 Avis des utilisateurs</div>
+
+    <!-- Formulaire -->
+    <div class="avis-form-block" id="avis-form-block">
+      <div style="font-size:0.88rem;font-weight:600;margin-bottom:4px;">Laisse ton avis</div>
+      <div style="font-size:0.78rem;color:var(--muted);margin-bottom:2px;">Ta note :</div>
+      <div class="stars-row" id="stars-row">
+        <button class="star-btn" data-v="1" onclick="setStars(1)">★</button>
+        <button class="star-btn" data-v="2" onclick="setStars(2)">★</button>
+        <button class="star-btn" data-v="3" onclick="setStars(3)">★</button>
+        <button class="star-btn" data-v="4" onclick="setStars(4)">★</button>
+        <button class="star-btn" data-v="5" onclick="setStars(5)">★</button>
+      </div>
+      <textarea class="avis-textarea" id="avis-input" placeholder="Qu'est-ce qui t'a le plus aidé ? Un retour, une suggestion…" maxlength="400"></textarea>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+        <button class="avis-submit" id="avis-submit-btn" onclick="submitAvis()">Envoyer mon avis ✨</button>
+        <span id="avis-msg" style="font-size:0.78rem;color:var(--accent3);display:none;">Merci pour ton avis ! 🎉</span>
+      </div>
+      <div id="avis-login-notice" class="avis-login-msg" style="display:none;">
+        🔑 <a href="/auth.html" style="color:var(--accent1);">Connecte-toi</a> pour laisser un avis.
+      </div>
     </div>
 
+    <!-- Liste des avis -->
+    <div class="avis-list" id="avis-list">
+      <div style="font-size:0.8rem;color:var(--muted);text-align:center;padding:12px 0;">Chargement des avis…</div>
+    </div>
   </div>
+
+
 </div>
 
 <!-- SEQ 1 -->
@@ -3356,6 +3426,15 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// ===== ÉTOILES AVIS =====
+let selectedStars = 0;
+function setStars(n) {
+  selectedStars = n;
+  document.querySelectorAll('.star-btn').forEach(b => {
+    b.classList.toggle('lit', parseInt(b.dataset.v) <= n);
+  });
+}
+
 buildDefs();
 buildQuizzes();
 buildVF();
@@ -3531,6 +3610,69 @@ function renderSeqMiniBar(s, data) {
     </div>`;
 }
 
+// ===== AVIS =====
+async function loadAvis() {
+  const { data, error } = await supabase
+    .from('avis')
+    .select('*')
+    .order('created_at', { ascending: false })
+    .limit(20);
+
+  const list = document.getElementById('avis-list');
+  if (!list) return;
+
+  if (error || !data || !data.length) {
+    list.innerHTML = '<div style="font-size:0.8rem;color:var(--muted);text-align:center;padding:12px 0;">Aucun avis pour l\'instant — sois le premier ! 🌟</div>';
+    return;
+  }
+
+  list.innerHTML = data.map(a => {
+    const stars = '★'.repeat(a.note) + '☆'.repeat(5 - a.note);
+    const initiale = a.email ? a.email[0].toUpperCase() : '?';
+    const pseudo = a.email ? a.email.split('@')[0] : 'Anonyme';
+    const date = new Date(a.created_at).toLocaleDateString('fr-FR', { day:'numeric', month:'short', year:'numeric' });
+    return `<div class="avis-card">
+      <div class="avis-card-header">
+        <div class="avis-card-avatar">${initiale}</div>
+        <div>
+          <div style="font-size:0.8rem;font-weight:600;">${pseudo}</div>
+          <div class="avis-card-meta">${date}</div>
+        </div>
+        <div class="avis-card-stars">${stars}</div>
+      </div>
+      ${a.commentaire ? `<div class="avis-card-text">${a.commentaire}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+window.submitAvis = async function() {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  if (!selectedStars) {
+    alert('Choisis une note avant d\'envoyer !'); return;
+  }
+  const commentaire = document.getElementById('avis-input').value.trim();
+  const btn = document.getElementById('avis-submit-btn');
+  btn.disabled = true;
+
+  const { error } = await supabase.from('avis').insert({
+    user_id: user.id,
+    email: user.email,
+    note: selectedStars,
+    commentaire: commentaire || null,
+  });
+
+  if (!error) {
+    document.getElementById('avis-msg').style.display = 'inline';
+    document.getElementById('avis-input').value = '';
+    setStars(0);
+    await loadAvis();
+    setTimeout(() => { document.getElementById('avis-msg').style.display = 'none'; }, 3000);
+  }
+  btn.disabled = false;
+}
+
 // ===== AUTH =====
 async function checkUser() {
   const { data: { user } } = await supabase.auth.getUser();
@@ -3538,19 +3680,36 @@ async function checkUser() {
   const email = document.getElementById('profile-email');
   const btnCo = document.getElementById('btn-connexion');
   const btnDeco = document.getElementById('btn-deconnexion');
+  const loginNotice = document.getElementById('avis-login-notice');
+  const submitBtn = document.getElementById('avis-submit-btn');
+  const starsRow = document.getElementById('stars-row');
+  const textarea = document.getElementById('avis-input');
+
   if (user) {
     const initiale = user.email[0].toUpperCase();
     avatar.textContent = initiale;
     email.textContent = user.email;
     btnCo.style.display = 'none';
     btnDeco.style.display = 'flex';
+    // Formulaire visible
+    if (loginNotice) loginNotice.style.display = 'none';
+    if (submitBtn) submitBtn.style.display = 'inline-block';
+    if (starsRow) starsRow.style.display = 'flex';
+    if (textarea) textarea.style.display = 'block';
     await loadAndRenderProgress();
   } else {
     avatar.textContent = '?';
     email.textContent = 'Non connecte';
     btnCo.style.display = 'flex';
     btnDeco.style.display = 'none';
+    // Masquer le formulaire, afficher notice
+    if (loginNotice) loginNotice.style.display = 'block';
+    if (submitBtn) submitBtn.style.display = 'none';
+    if (starsRow) starsRow.style.display = 'none';
+    if (textarea) textarea.style.display = 'none';
   }
+  // Charger les avis dans tous les cas
+  await loadAvis();
 }
 
 window.logout = async function() {
