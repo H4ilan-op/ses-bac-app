@@ -514,6 +514,39 @@
       <span class="badge">Sociologie</span>
     </div>
   </div>
+  <!-- BANNIÈRE INFO -->
+  <div style="max-width:900px;margin:8px auto 0;padding:0 24px;">
+    <div style="
+      background: linear-gradient(135deg, rgba(124,106,247,0.08) 0%, rgba(106,247,194,0.08) 100%);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent1);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    ">
+      <span style="font-size:1.5rem;flex-shrink:0;margin-top:2px;">📚</span>
+      <div>
+        <div style="font-size:0.82rem;font-weight:600;color:var(--text);margin-bottom:4px;">En cours de construction</div>
+        <div style="font-size:0.8rem;color:var(--muted);line-height:1.65;">
+          Cette application a été réalisée à partir des cours reçus en Terminale. Les séquences 6 à 9 seront ajoutées progressivement au fil de l'année — revenez régulièrement&nbsp;! 🎓
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESSION GLOBALE -->
+  <div id="progression-home" style="max-width:900px;margin:16px auto 0;padding:0 24px;display:none;">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+        <div style="font-size:0.9rem;font-weight:600;">📈 Ma progression</div>
+        <div id="prog-total" style="font-size:0.78rem;color:var(--muted);"></div>
+      </div>
+      <div id="prog-seqs" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+  </div>
+
   <div class="home-section-title">🛠 Outils & Méthodes</div>
   <div class="home-extra-grid">
     <div class="home-extra-card" onclick="showExtra('methodo')">
@@ -540,6 +573,7 @@
     <button class="tab-btn" onclick="switchTab(1,'qcm')">✅ QCM</button>
     <button class="tab-btn" onclick="switchTab(1,'vf')">❓ Vrai/Faux</button>
     <button class="tab-btn" onclick="switchTab(1,'bac')">🎓 Sujets Bac</button>
+    <button class="tab-btn" onclick="switchTab(1,'progression')">📈 Progression</button>
   </div>
 
   <div id="seq1-cours" class="tab-panel active">
@@ -860,6 +894,13 @@
     </div>
   </div>
 
+  <div id="seq1-progression" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">📈</span>Ma progression — Séquence 1</h3>
+      <div id="prog-mini-seq1" style="padding:8px 0;"><span style="font-size:0.8rem;color:var(--muted);">Connecte-toi pour voir ta progression.</span></div>
+    </div>
+  </div>
+
   <div id="seq1-bac" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-blue">🎓</span>Sujets de Bac — Séquence 1</h3>
@@ -884,6 +925,7 @@
     <button class="tab-btn" onclick="switchTab(2,'qcm')">✅ QCM</button>
     <button class="tab-btn" onclick="switchTab(2,'vf')">❓ Vrai/Faux</button>
     <button class="tab-btn" onclick="switchTab(2,'bac')">🎓 Sujets Bac</button>
+    <button class="tab-btn" onclick="switchTab(2,'progression')">📈 Progression</button>
   </div>
 
   <div id="seq2-cours" class="tab-panel active">
@@ -1108,6 +1150,13 @@
     </div>
   </div>
 
+  <div id="seq2-progression" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-green">📈</span>Ma progression — Séquence 2</h3>
+      <div id="prog-mini-seq2" style="padding:8px 0;"><span style="font-size:0.8rem;color:var(--muted);">Connecte-toi pour voir ta progression.</span></div>
+    </div>
+  </div>
+
   <div id="seq2-bac" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-green">🎓</span>Sujets de Bac — Séquence 2</h3>
@@ -1132,6 +1181,7 @@
     <button class="tab-btn" onclick="switchTab(3,'qcm')">✅ QCM</button>
     <button class="tab-btn" onclick="switchTab(3,'vf')">❓ Vrai/Faux</button>
     <button class="tab-btn" onclick="switchTab(3,'bac')">🎓 Sujets Bac</button>
+    <button class="tab-btn" onclick="switchTab(3,'progression')">📈 Progression</button>
   </div>
 
   <div id="seq3-cours" class="tab-panel active">
@@ -1370,6 +1420,13 @@
     </div>
   </div>
 
+  <div id="seq3-progression" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-red">📈</span>Ma progression — Séquence 3</h3>
+      <div id="prog-mini-seq3" style="padding:8px 0;"><span style="font-size:0.8rem;color:var(--muted);">Connecte-toi pour voir ta progression.</span></div>
+    </div>
+  </div>
+
   <div id="seq3-bac" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-red">🎓</span>Sujets de Bac — Séquence 3</h3>
@@ -1394,6 +1451,7 @@
     <button class="tab-btn" onclick="switchTab(4,'qcm')">✅ QCM</button>
     <button class="tab-btn" onclick="switchTab(4,'vf')">❓ Vrai/Faux</button>
     <button class="tab-btn" onclick="switchTab(4,'bac')">🎓 Sujets Bac</button>
+    <button class="tab-btn" onclick="switchTab(4,'progression')">📈 Progression</button>
   </div>
 
   <div id="seq4-cours" class="tab-panel active">
@@ -1757,6 +1815,13 @@
     </div>
   </div>
 
+  <div id="seq4-progression" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-yellow">📈</span>Ma progression — Séquence 4</h3>
+      <div id="prog-mini-seq4" style="padding:8px 0;"><span style="font-size:0.8rem;color:var(--muted);">Connecte-toi pour voir ta progression.</span></div>
+    </div>
+  </div>
+
   <div id="seq4-bac" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">🎓</span>Sujets de Bac — Séquence 4</h3>
@@ -1781,6 +1846,7 @@
     <button class="tab-btn" onclick="switchTab(5,'qcm')">✅ QCM</button>
     <button class="tab-btn" onclick="switchTab(5,'vf')">❓ Vrai/Faux</button>
     <button class="tab-btn" onclick="switchTab(5,'bac')">🎓 Sujets Bac</button>
+    <button class="tab-btn" onclick="switchTab(5,'progression')">📈 Progression</button>
   </div>
 
   <div id="seq5-cours" class="tab-panel active">
@@ -2113,6 +2179,13 @@
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 5</h3>
       <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50.</p>
       <div id="vf5"></div>
+    </div>
+  </div>
+
+  <div id="seq5-progression" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">📈</span>Ma progression — Séquence 5</h3>
+      <div id="prog-mini-seq5" style="padding:8px 0;"><span style="font-size:0.8rem;color:var(--muted);">Connecte-toi pour voir ta progression.</span></div>
     </div>
   </div>
 
@@ -2635,6 +2708,10 @@ function answerQ(s, qi, selected, btn) {
     document.getElementById('score-num-' + s).textContent = quizState[s].correct;
     scoreEl.style.display = 'block';
     scoreEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Sauvegarder dans Supabase si connecté
+    if (typeof window.saveProgress === 'function') {
+      window.saveProgress(s, 'qcm', quizState[s].correct, quizState[s].total);
+    }
   }
 }
 
@@ -3007,6 +3084,10 @@ function answerVF(s, qi, answer, btn) {
     document.getElementById('vfscore-num-'+s).textContent = vfState[s].correct;
     sc.style.display = 'block';
     sc.scrollIntoView({ behavior:'smooth', block:'nearest' });
+    // Sauvegarder dans Supabase si connecté
+    if (typeof window.saveProgress === 'function') {
+      window.saveProgress(s, 'vf', vfState[s].correct, vfState[s].total);
+    }
   }
 }
 
@@ -3058,12 +3139,175 @@ buildVF();
 buildBac();
 </script>
 
+<!-- 
+  ⚠️ TABLE SUPABASE À CRÉER — exécute ce SQL dans ton dashboard Supabase > SQL Editor :
+
+  create table if not exists progression (
+    id uuid default gen_random_uuid() primary key,
+    user_id uuid references auth.users(id) on delete cascade not null,
+    seq integer not null,
+    type text not null,
+    correct integer not null default 0,
+    total integer not null default 0,
+    updated_at timestamptz default now(),
+    unique(user_id, seq, type)
+  );
+
+  alter table progression enable row level security;
+
+  create policy "Users can manage their own progression"
+    on progression for all
+    using (auth.uid() = user_id)
+    with check (auth.uid() = user_id);
+-->
 <script type="module">
 import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 const SUPABASE_URL = 'https://icelztsqfgwvsojvkhys.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_XIR8v41IboQjTzGcnd0EAg_iDH5Q_1F';
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+// ===== NOMS DES SÉQUENCES =====
+const seqNames = {
+  1: 'Croissance', 2: 'Environnement', 3: 'Engagement', 4: 'Commerce int.', 5: 'Société française'
+};
+const seqColors = {
+  1: 'var(--accent1)', 2: 'var(--accent3)', 3: 'var(--accent2)', 4: 'var(--accent4)', 5: 'var(--accent5)'
+};
+const seqBgs = {
+  1: 'rgba(124,106,247,.25)', 2: 'rgba(106,247,194,.25)', 3: 'rgba(247,106,138,.25)', 4: 'rgba(247,194,106,.25)', 5: 'rgba(106,171,247,.25)'
+};
+
+// ===== ÉTAT LOCAL (pendant la session) =====
+// On stocke les résultats de la session en cours pour les fusionner avec Supabase
+window._sessionResults = {};
+
+// ===== SAUVEGARDE SUPABASE =====
+async function saveProgress(seq, type, correct, total) {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const key = `seq${seq}_${type}`; // ex: seq1_qcm ou seq1_vf
+  const now = new Date().toISOString();
+
+  // Upsert dans la table progression (à créer dans Supabase)
+  await supabase.from('progression').upsert({
+    user_id: user.id,
+    seq: seq,
+    type: type,
+    correct: correct,
+    total: total,
+    updated_at: now
+  }, { onConflict: 'user_id,seq,type' });
+
+  // Rafraîchir l'affichage
+  await loadAndRenderProgress();
+}
+window.saveProgress = saveProgress;
+
+// ===== CHARGEMENT ET RENDU DE LA PROGRESSION =====
+async function loadAndRenderProgress() {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+
+  const { data, error } = await supabase
+    .from('progression')
+    .select('*')
+    .eq('user_id', user.id);
+
+  if (error || !data) return;
+
+  // Organiser par séquence
+  const bySeq = {};
+  for (let s = 1; s <= 5; s++) bySeq[s] = { qcm: null, vf: null };
+  data.forEach(row => { bySeq[row.seq][row.type] = row; });
+
+  // --- Affichage page d'accueil ---
+  const homeBlock = document.getElementById('progression-home');
+  const seqsContainer = document.getElementById('prog-seqs');
+  const totalEl = document.getElementById('prog-total');
+  if (!homeBlock || !seqsContainer) return;
+
+  homeBlock.style.display = 'block';
+  seqsContainer.innerHTML = '';
+
+  let globalCorrect = 0, globalTotal = 0;
+
+  for (let s = 1; s <= 5; s++) {
+    const qcm = bySeq[s].qcm;
+    const vf = bySeq[s].vf;
+    const hasData = qcm || vf;
+
+    const seqCorrect = (qcm ? qcm.correct : 0) + (vf ? vf.correct : 0);
+    const seqTotal = (qcm ? qcm.total : 0) + (vf ? vf.total : 0);
+    globalCorrect += seqCorrect;
+    globalTotal += seqTotal;
+
+    const pct = seqTotal > 0 ? Math.round(seqCorrect / seqTotal * 100) : 0;
+    const color = seqColors[s];
+    const bg = seqBgs[s];
+
+    const row = document.createElement('div');
+    row.style.cssText = 'display:flex;flex-direction:column;gap:4px;';
+    row.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.8rem;color:var(--text);font-weight:500;">Séq. ${s} — ${seqNames[s]}</span>
+        <span style="font-size:0.75rem;color:var(--muted);">${hasData ? seqCorrect + ' / ' + seqTotal + ' · ' + pct + '%' : 'Pas encore commencé'}</span>
+      </div>
+      <div style="height:7px;background:var(--border);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${color};border-radius:4px;transition:width .6s ease;"></div>
+      </div>
+      <div style="display:flex;gap:12px;">
+        ${qcm ? `<span style="font-size:0.7rem;color:var(--muted);">QCM : ${qcm.correct}/${qcm.total}</span>` : ''}
+        ${vf ? `<span style="font-size:0.7rem;color:var(--muted);">Vrai/Faux : ${vf.correct}/${vf.total}</span>` : ''}
+      </div>`;
+    seqsContainer.appendChild(row);
+  }
+
+  const globalPct = globalTotal > 0 ? Math.round(globalCorrect / globalTotal * 100) : 0;
+  totalEl.textContent = `${globalCorrect} bonnes réponses sur ${globalTotal} · ${globalPct}% de réussite`;
+
+  // --- Mini-barres dans chaque séquence ---
+  for (let s = 1; s <= 5; s++) {
+    renderSeqMiniBar(s, bySeq[s]);
+  }
+}
+
+function renderSeqMiniBar(s, data) {
+  const containerId = `prog-mini-seq${s}`;
+  let el = document.getElementById(containerId);
+  if (!el) return;
+
+  const qcm = data.qcm;
+  const vf = data.vf;
+  if (!qcm && !vf) { el.innerHTML = '<span style="font-size:0.75rem;color:var(--muted);">Aucun résultat enregistré pour cette séquence.</span>'; return; }
+
+  const color = seqColors[s];
+  el.innerHTML = `
+    <div style="display:flex;gap:20px;flex-wrap:wrap;">
+      ${qcm ? `
+        <div style="flex:1;min-width:120px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:0.75rem;color:var(--muted);">✅ QCM</span>
+            <span style="font-size:0.75rem;font-weight:600;color:${color};">${qcm.correct}/${qcm.total} · ${Math.round(qcm.correct/qcm.total*100)}%</span>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+            <div style="height:100%;width:${Math.round(qcm.correct/qcm.total*100)}%;background:${color};border-radius:3px;transition:width .5s;"></div>
+          </div>
+        </div>` : ''}
+      ${vf ? `
+        <div style="flex:1;min-width:120px;">
+          <div style="display:flex;justify-content:space-between;margin-bottom:4px;">
+            <span style="font-size:0.75rem;color:var(--muted);">❓ Vrai/Faux</span>
+            <span style="font-size:0.75rem;font-weight:600;color:${color};">${vf.correct}/${vf.total} · ${Math.round(vf.correct/vf.total*100)}%</span>
+          </div>
+          <div style="height:6px;background:var(--border);border-radius:3px;overflow:hidden;">
+            <div style="height:100%;width:${Math.round(vf.correct/vf.total*100)}%;background:${color};border-radius:3px;transition:width .5s;"></div>
+          </div>
+        </div>` : ''}
+    </div>`;
+}
+
+// ===== AUTH =====
 async function checkUser() {
   const { data: { user } } = await supabase.auth.getUser();
   const avatar = document.getElementById('profile-avatar');
@@ -3076,6 +3320,7 @@ async function checkUser() {
     email.textContent = user.email;
     btnCo.style.display = 'none';
     btnDeco.style.display = 'flex';
+    await loadAndRenderProgress();
   } else {
     avatar.textContent = '?';
     email.textContent = 'Non connecte';
