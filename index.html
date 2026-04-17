@@ -185,8 +185,9 @@
   .seq-card.s3::before { background:linear-gradient(135deg,rgba(247,106,138,.15),transparent); }
   .seq-card.s4::before { background:linear-gradient(135deg,rgba(247,194,106,.15),transparent); }
   .seq-card.s5::before { background:linear-gradient(135deg,rgba(106,171,247,.15),transparent); }
+  .seq-card.s6::before { background:linear-gradient(135deg,rgba(106,247,194,.15),transparent); }
   .seq-card .num { font-size:2rem; font-family:'Playfair Display',serif; font-weight:900; margin-bottom:8px; }
-  .s1 .num { color:var(--accent1); } .s2 .num { color:var(--accent3); } .s3 .num { color:var(--accent2); } .s4 .num { color:var(--accent4); } .s5 .num { color:var(--accent5); }
+  .s1 .num { color:var(--accent1); } .s2 .num { color:var(--accent3); } .s3 .num { color:var(--accent2); } .s4 .num { color:var(--accent4); } .s5 .num { color:var(--accent5); } .s6 .num { color:var(--accent3); }
   .seq-card h3 { font-size:0.85rem; font-weight:600; line-height:1.4; margin-bottom:6px; }
   .seq-card p { font-size:0.75rem; color:var(--muted); line-height:1.5; }
   .badge { display:inline-block; font-size:0.68rem; padding:2px 8px; border-radius:10px; margin-top:10px; }
@@ -195,6 +196,7 @@
   .s3 .badge { background:rgba(247,106,138,.2); color:var(--accent2); }
   .s4 .badge { background:rgba(247,194,106,.2); color:var(--accent4); }
   .s5 .badge { background:rgba(106,171,247,.2); color:var(--accent5); }
+  .s6 .badge { background:rgba(106,247,194,.2); color:var(--accent3); }
 
   /* CONTENT */
   .content { display:none; max-width:900px; margin:0 auto; padding:0 24px 60px; }
@@ -241,6 +243,7 @@
   .s3 ul.notion-list li { border-left-color:var(--accent2); }
   .s4 ul.notion-list li { border-left-color:var(--accent4); }
   .s5 ul.notion-list li { border-left-color:var(--accent5); }
+  .s6 ul.notion-list li { border-left-color:var(--accent3); }
 
   .notion-list li strong { color:var(--text); }
   .notion-list li span { color:var(--muted); }
@@ -521,6 +524,7 @@
     <button class="nav-btn" onclick="showSeq(3);closeNav()">Séq. 3 — Engagement</button>
     <button class="nav-btn" onclick="showSeq(4);closeNav()">Séq. 4 — Commerce int.</button>
     <button class="nav-btn" onclick="showSeq(5);closeNav()">Séq. 5 — Société française</button>
+    <button class="nav-btn" onclick="showSeq(6);closeNav()">Séq. 6 — Mobilité soc.</button>
   </div>
 
   <!-- HAMBURGER (mobile uniquement) -->
@@ -606,6 +610,12 @@
       <p>Classes sociales, inégalités, mobilité, stratification sociale</p>
       <span class="badge">Sociologie</span>
     </div>
+    <div class="seq-card s6" onclick="showSeq(6)">
+  <div class="num">06</div>
+  <h3>Mobilité sociale contemporaine</h3>
+  <p>Tables de mobilité, fluidité sociale, mobilité structurelle, rôle du diplôme et de la famille</p>
+  <span class="badge">Sociologie</span>
+</div>
     <div class="seq-card" style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;cursor:pointer;transition:all .25s;" onclick="showExtra('methodo')" onmouseover="this.style.transform='translateY(-3px)';this.style.borderColor='var(--accent1)'" onmouseout="this.style.transform='';this.style.borderColor='var(--border)'">
       <div style="font-size:2rem;font-family:'Playfair Display',serif;font-weight:900;margin-bottom:8px;color:var(--accent1);">📐</div>
       <h3 style="font-size:0.85rem;font-weight:600;line-height:1.4;margin-bottom:6px;">Fiches Méthodologie</h3>
@@ -2353,6 +2363,323 @@
   </div>
 </div>
 
+<!-- SEQ 6 -->
+<div id="seq6" class="content s6">
+  <div class="content-header">
+    <div class="seq-label">Séquence 6 — Sociologie</div>
+    <h2>Quelles sont les caractéristiques contemporaines et les facteurs de la mobilité sociale ?</h2>
+  </div>
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab(6,'cours')">📖 Cours</button>
+    <button class="tab-btn" onclick="switchTab(6,'notions')">🔑 Notions-clés</button>
+    <button class="tab-btn" onclick="switchTab(6,'schemas')">🔗 Schémas</button>
+    <button class="tab-btn" onclick="switchTab(6,'synthese')">📝 Synthèses</button>
+    <button class="tab-btn" onclick="switchTab(6,'qcm')">✅ QCM</button>
+    <button class="tab-btn" onclick="switchTab(6,'vf')">❓ Vrai/Faux</button>
+    <button class="tab-btn" onclick="switchTab(6,'bac')">🎓 Sujets Bac</button>
+  </div>
+ 
+  <!-- COURS -->
+  <div id="seq6-cours" class="tab-panel active">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">📌</span>Introduction — Définir la mobilité sociale</h3>
+      <ul class="notion-list">
+        <li><strong>Mobilité sociale</strong> : désigne au sens large la circulation des individus entre les positions sociales. On s'intéresse ici à la mobilité sociale <strong>intergénérationnelle</strong> : le changement de position sociale d'un individu par rapport à la position de l'un de ses parents (généralement le père).</li>
+        <li>Elle s'oppose à la <strong>reproduction sociale</strong> : les enfants occupent les mêmes positions sociales que leurs parents.</li>
+        <li>⚠️ <strong>NE PAS CONFONDRE</strong> : mobilité intergénérationnelle (comparer père et fils sur deux générations) ≠ mobilité professionnelle / intragénérationnelle (changement de profession au cours d'une même carrière).</li>
+        <li><strong>Mobilité verticale</strong> : ascendante (ascension sociale : PCS fils > PCS père) ou descendante (déclassement : PCS fils < PCS père). <strong>Mobilité horizontale</strong> : changement de PCS sans modification de hiérarchie (ex : fils d'agriculteur → ouvrier).</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block" style="border-left:3px solid var(--accent1);padding-left:18px;">
+      <h3 style="color:var(--accent1);font-size:1.05rem;margin-bottom:6px;">PARTIE I — LA MESURE DE LA MOBILITÉ SOCIALE</h3>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-blue">A</span>Les tables de mobilité : principes, intérêts et limites</h3>
+      <ul class="notion-list">
+        <li><strong>Outil de mesure</strong> : l'INSEE collecte les données dans les <em>enquêtes FQP (Formation et Qualification Professionnelle)</em> depuis 1964, tous les 10-15 ans. Interrogation de personnes de <strong>30 à 59 ans</strong> sur leur PCS actuelle ET celle de leur père à la fin de leurs études.</li>
+        <li><strong>Table de mobilité brute</strong> : tableau à double entrée croisant PCS des individus × PCS de leurs pères (6 PCS actifs). Lecture en <em>ligne</em> = destinées sociales. Lecture en <em>colonne</em> = recrutement social. <strong>Diagonale</strong> = reproduction sociale (immobilité).</li>
+        <li><strong>Table de recrutement</strong> (en %) : lue en colonne → "D'où viennent les fils ?" Ex : 3,9 % des CPIS avaient un père agriculteur. Diagonale = autorecrutement.</li>
+        <li><strong>Table de destinée</strong> (en %) : lue en ligne → "Que deviennent les fils ?" Ex : 8,8 % des fils d'agriculteurs sont devenus CPIS. Diagonale = reproduction sociale.</li>
+        <li><strong>Intérêt</strong> : mesurer les flux de mobilité ascendante, descendante, horizontale et les situations de reproduction. Permet d'évaluer le degré d'égalité des chances.</li>
+        <li>⚠️ <strong>Limite 1 — Nombre de PCS</strong> : 6 PCS masquent des flux internes (ex : Hugree avec 24 CSP montre que 20 % des fils d'ouvriers NQ deviennent ouvriers qualifiés — invisible avec 6 PCS).</li>
+        <li>⚠️ <strong>Limite 2 — Mobilité subjective</strong> : les tables ne capturent pas la perception des individus. Or plus de la moitié des actifs sous-estiment (21,8 %) ou surestiment (30,7 %) leur position sociale par rapport aux données objectives.</li>
+        <li>⚠️ <strong>Limite 3 — Invisibilité des femmes</strong> : longtemps, les tables ne mesuraient que la mobilité des <strong>hommes</strong> (fort taux d'inactivité féminine jusqu'aux années 60-70 ; structure des emplois différente).</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-green">B</span>Mobilité observée et mobilité structurelle</h3>
+      <ul class="notion-list">
+        <li><strong>Mobilité observée</strong> : ensemble des changements de PCS d'une génération (mobilité totale). En France (FQP 2014-2015) : taux de reproduction sociale = 36,5 % → <strong>mobilité observée = 63,5 %</strong>. Stable depuis 1993 (~2/3 des actifs sont mobiles).</li>
+        <li><strong>Mobilité structurelle</strong> : part de la mobilité observée qui s'explique par l'évolution de la structure socioprofessionnelle entre générations. En France ≈ 26,6 % (FQP 2014). Calcul : comparer les marges de la table (ligne et colonne "Ensemble").</li>
+        <li>Ex : PCS agriculteurs a fortement diminué (674 000 pères → 217 000 fils) → des fils d'agriculteurs sont contraints de changer de PCS faute d'emplois disponibles. PCS CPIS a fortement augmenté (904 000 pères → 1 369 000 fils) → nécessité de recruter hors fils de CPIS.</li>
+        <li>⚠️ Ces flux de mobilité <strong>ne traduisent pas une plus grande égalité des chances</strong> mais des contraintes de l'offre d'emplois liées à la tertiarisation et la salarisation.</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-yellow">C</span>La fluidité sociale : mesure relative de la mobilité</h3>
+      <ul class="notion-list">
+        <li><strong>Problème</strong> : la mobilité observée s'explique en partie par la mobilité structurelle → constater des flux de mobilité ne suffit pas pour mesurer l'égalité des chances.</li>
+        <li><strong>Fluidité sociale</strong> : mesure la <em>force du lien entre origine sociale et position sociale</em>, indépendamment de la structure des emplois. Calculée via les <strong>odds ratios</strong> (rapports de chances relatives).</li>
+        <li><strong>Calcul de l'odds ratio (2015)</strong> :<br>
+          – Chances d'un fils de <strong>cadre</strong> de devenir cadre plutôt qu'ouvrier : 47,0 / 10,0 = <strong>4,7</strong><br>
+          – Chances d'un fils d'<strong>ouvrier</strong> de devenir cadre plutôt qu'ouvrier : 9,4 / 47,6 = <strong>0,2</strong><br>
+          – Odds ratio = 4,7 / 0,2 = <strong>23,5</strong> → forte inégalité de chances.</li>
+        <li><strong>Interprétation</strong> : odds ratio = 1 → égalité parfaite des chances. Plus il s'éloigne de 1, plus les inégalités sont fortes.</li>
+        <li>⚠️ <strong>Société plus mobile ≠ société plus fluide</strong> : la hausse de la mobilité peut être entièrement due à la mobilité structurelle, sans que le lien origine/position s'affaiblisse. (Ex du Nefarc fictif : plus mobile en 2080 mais même odds ratio → pas plus fluide.)</li>
+        <li><strong>En France</strong> : mobilité observée stable à ~65 % depuis 1993, mais <strong>la fluidité sociale a progressé entre 1977 et 2015</strong> pour tous les groupes → la structure sociale devient moins rigide.</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block" style="border-left:3px solid var(--accent3);padding-left:18px;">
+      <h3 style="color:var(--accent3);font-size:1.05rem;margin-bottom:6px;">PARTIE II — LES FACTEURS DE LA MOBILITÉ SOCIALE</h3>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-green">A</span>La mobilité structurelle (voir I-B)</h3>
+      <ul class="notion-list">
+        <li>Tertiarisation et salarisation des emplois génèrent mécaniquement de la mobilité. Ce facteur est indépendant de la volonté des individus et de l'égalité des chances.</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-green">B</span>La hausse des niveaux de formation</h3>
+      <ul class="notion-list">
+        <li><strong>Massification scolaire</strong> (quantitative) : forte augmentation du nombre de diplômés depuis les années 1950. Entre 1985 et 2015, les diplômes d'école de commerce ont été multipliés par <strong>4,9</strong>.</li>
+        <li><strong>Démocratisation scolaire</strong> (qualitative) : égalisation progressive des conditions d'accès selon l'origine sociale. Moins avancée que la massification.</li>
+        <li>Lien avec la mobilité : le diplôme conditionne l'accès aux emplois qualifiés → flux de mobilité ascendante pour les enfants d'ouvriers et d'employés. Corrélation positive entre niveau de diplôme et probabilité d'accéder à un emploi de cadre (France Stratégie 2023).</li>
+        <li>⚠️ <strong>Paradoxe d'Anderson</strong> : la hausse généralisée du niveau de formation entraîne une <em>inflation scolaire</em> (dévalorisation des diplômes). Le nombre de diplômés a augmenté plus vite que le nombre de postes qualifiés disponibles → des individus diplômés se retrouvent dans des positions sociales inférieures à celles de leurs parents (<strong>déclassement intergénérationnel</strong>, Chauvel).</li>
+        <li>Résultat : le niveau de formation reste un levier de mobilité mais <em>ne protège plus aussi efficacement contre le déclassement</em>.</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-yellow">C</span>Le rôle des ressources familiales</h3>
+      <ul class="notion-list">
+        <li>Selon <strong>Bourdieu</strong>, la famille est souvent un frein à la mobilité ascendante ou une garantie d'immobilité pour les plus favorisés, car elle transmet des capitaux de façon inégale.</li>
+        <li>🔬 <strong>Capital culturel</strong> : diplômes, savoirs incorporés, maîtrise du langage. Contribue aux inégalités de réussite scolaire. À diplôme égal, 70 % des enfants de cadres titulaires d'un Master+ occupent un emploi de cadre 5-8 ans après leurs études vs 43 % des enfants d'ouvriers (France Stratégie 2023).</li>
+        <li>🤝 <strong>Capital social</strong> : réseau de relations mobilisables. Permet d'obtenir un emploi qualifié par l'effet « piston ». À diplôme égal, les enfants bien dotés en capital social ont un avantage.</li>
+        <li>💰 <strong>Capital économique</strong> : revenus et patrimoine. Permet de compenser l'échec scolaire (cours particuliers, écoles privées, financement d'une entreprise) pour les familles aisées.</li>
+        <li>💍 <strong>Homogamie sociale</strong> : tendance à se mettre en couple avec quelqu'un de même milieu social/diplôme. Concentre les ressources dans certaines familles et amplifie les inégalités intergénérationnelles.</li>
+      </ul>
+    </div>
+ 
+    <div class="section-block">
+      <h3><span class="icon icon-yellow">C2</span>Les configurations familiales</h3>
+      <ul class="notion-list">
+        <li><strong>Taille de la fratrie</strong> : plus elle est petite, plus les ressources familiales se concentrent sur chaque enfant → meilleure réussite scolaire → plus de chances d'ascension sociale.</li>
+        <li><strong>Rang dans la fratrie</strong> : les aînés bénéficient d'un avantage éducatif (attention parentale exclusive en premier). Ils jouent un rôle de « locomotives » pour leurs cadets. Les benjamins peuvent être désavantagés si les ressources ont été partiellement consommées.</li>
+        <li><strong>Diplôme de la mère</strong> : a un effet explicatif plus important que celui du père sur la trajectoire des individus (l'éducation des enfants revient le plus souvent aux mères).</li>
+        <li><strong>Structure du foyer</strong> : les enfants de familles monoparentales ou recomposées ont une plus forte probabilité d'échec scolaire (conditions dégradées : logement plus petit, baisse du niveau de vie, conflits parentaux).</li>
+        <li>Ex (Stéphane Beaud, <em>La France des Belhoumi</em>) : les deux filles aînées d'une fratrie algérienne de 8 enfants ont réussi une ascension sociale grâce à la mixité sociale du quartier, au contrôle de la mère, à l'ethos de bonne élève développé, et au rôle de « locomotives » qu'elles ont joué pour leurs cadets.</li>
+      </ul>
+    </div>
+  </div>
+ 
+  <!-- NOTIONS -->
+  <div id="seq6-notions" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">🔑</span>Définitions à maîtriser</h3>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:14px;">Clique sur une notion pour révéler la définition.</p>
+      <div class="def-grid" id="def6"></div>
+    </div>
+  </div>
+ 
+  <!-- SCHEMAS -->
+  <div id="seq6-schemas" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-green">🔗</span>Schémas classiques à maîtriser</h3>
+ 
+      <div class="schema-box">
+        <h4>1. Les différentes formes de mobilité sociale</h4>
+        <div style="overflow-x:auto;margin-top:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.8rem;">
+            <thead><tr style="background:rgba(106,171,247,.15);">
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Forme</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Définition</th>
+              <th style="padding:8px;border:1px solid var(--border);text-align:left">Exemple</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent5)">Géographique</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Changement de lieu de résidence</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Déménager pour un stage</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent4)">Professionnelle (intragénéra.)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Changer de profession au cours de sa carrière</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Un ouvrier → contremaître</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent3)">Sociale ascendante</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">PCS du fils > PCS du père</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Fille d'employée → cadre</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent2)">Sociale descendante</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">PCS du fils < PCS du père</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Fils de cadre → employé</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--muted)">Horizontale</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Changement de PCS sans changement de niveau hiérarchique</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Fils d'agriculteur → ouvrier</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent1)">Reproduction sociale</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">PCS identique entre père et fils (diagonale de la table)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Fils d'ouvrier → ouvrier</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+ 
+      <div class="schema-box">
+        <h4>2. Comment lire une table de mobilité — les 3 types de tables</h4>
+        <div style="overflow-x:auto;margin-top:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.79rem;">
+            <thead><tr style="background:rgba(124,106,247,.15);">
+              <th style="padding:8px;border:1px solid var(--border)">Type de table</th>
+              <th style="padding:8px;border:1px solid var(--border)">Exprimée en</th>
+              <th style="padding:8px;border:1px solid var(--border)">Lue en</th>
+              <th style="padding:8px;border:1px solid var(--border)">Répond à la question</th>
+              <th style="padding:8px;border:1px solid var(--border)">Diagonale =</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent1)">Table brute</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Effectifs (milliers)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Ligne OU Colonne</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Flux absolus de mobilité</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Immobilité sociale</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent3)">Table de destinée</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">%</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)"><strong>LIGNE</strong> (total = 100 %)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">« <em>Que deviennent</em> les fils d'une PCS ? »</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Reproduction sociale</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent4)">Table de recrutement</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">%</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)"><strong>COLONNE</strong> (total = 100 %)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">« <em>D'où viennent</em> les fils d'une PCS ? »</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Autorecrutement</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.77rem;color:var(--muted);margin-top:8px;">Ex FQP 2014-2015 : 8,8 % des fils d'agriculteurs sont devenus CPIS (table de destinée, lecture en ligne). 3,9 % des CPIS avaient un père agriculteur (table de recrutement, lecture en colonne).</p>
+      </div>
+ 
+      <div class="schema-box">
+        <h4>3. Mobilité observée — Mobilité structurelle — Fluidité sociale</h4>
+        <div style="overflow-x:auto;margin-top:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.79rem;">
+            <thead><tr style="background:rgba(106,247,194,.1);">
+              <th style="padding:8px;border:1px solid var(--border)">Concept</th>
+              <th style="padding:8px;border:1px solid var(--border)">Définition</th>
+              <th style="padding:8px;border:1px solid var(--border)">Valeur France (FQP 2014)</th>
+              <th style="padding:8px;border:1px solid var(--border)">Mesurée par</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent5)">Mobilité observée</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Total des changements de PCS entre générations</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center"><strong>63,5 %</strong></td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">100 − taux de reproduction sociale</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent1)">Mobilité structurelle</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Part due à l'évolution de la structure des emplois (≠ égalité des chances)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center"><strong>≈ 26,6 %</strong></td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Comparaison des marges de la table</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent3)">Fluidité sociale</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Force du lien entre origine sociale et position sociale (indépendant de la structure)</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center">↑ entre 1977 et 2015</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Odds ratios (≠ 1 → inégalité)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:10px;padding:10px 14px;background:rgba(247,194,106,.08);border-left:3px solid var(--accent4);border-radius:0 8px 8px 0;font-size:0.78rem;color:var(--accent4);">
+          ⚠️ <strong>Une société plus mobile n'est pas nécessairement plus fluide</strong> : si la hausse de la mobilité s'explique entièrement par la mobilité structurelle, le lien entre origine et position reste identique.
+        </div>
+      </div>
+ 
+      <div class="schema-box">
+        <h4>4. Calcul et lecture de l'odds ratio (fluidité sociale, 2015)</h4>
+        <div style="overflow-x:auto;margin-top:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.79rem;">
+            <thead><tr style="background:rgba(247,194,106,.1);">
+              <th style="padding:8px;border:1px solid var(--border)">Groupe</th>
+              <th style="padding:8px;border:1px solid var(--border)">Chances relatives (cadre / ouvrier)</th>
+              <th style="padding:8px;border:1px solid var(--border)">Calcul</th>
+              <th style="padding:8px;border:1px solid var(--border)">Résultat</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent1)">Fils de cadre</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Devenir cadre plutôt qu'ouvrier</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center">47,0 / 10,0</td><td style="padding:8px;border:1px solid var(--border);text-align:center;font-weight:700;color:var(--accent1)">4,7</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600;color:var(--accent2)">Fils d'ouvrier</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Devenir cadre plutôt qu'ouvrier</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center">9,4 / 47,6</td><td style="padding:8px;border:1px solid var(--border);text-align:center;font-weight:700;color:var(--accent2)">0,2</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600">ODDS RATIO</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Rapport des chances relatives</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted);text-align:center">4,7 / 0,2</td><td style="padding:8px;border:1px solid var(--border);text-align:center;font-weight:700;color:var(--accent4);font-size:1.1rem">≈ 23,5</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:0.77rem;color:var(--accent3);margin-top:8px;">Interprétation : un fils de cadre a ~23,5 fois plus de chances de devenir cadre plutôt qu'ouvrier qu'un fils d'ouvrier. Si odds ratio = 1 → égalité parfaite des chances.</p>
+      </div>
+ 
+      <div class="schema-box">
+        <h4>5. Les facteurs de la mobilité sociale</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;">
+          <div style="background:rgba(124,106,247,.08);border:1px solid rgba(124,106,247,.25);border-radius:10px;padding:12px;">
+            <div style="font-weight:700;color:var(--accent1);margin-bottom:6px;font-size:0.82rem;">🏗️ Mobilité structurelle</div>
+            <div style="font-size:0.77rem;color:var(--muted);line-height:1.7">Tertiarisation → ↓ agriculteurs, ↑ CPIS<br>Salarisation → nouveaux postes disponibles<br>→ Mobilité indépendante de l'égalité des chances</div>
+          </div>
+          <div style="background:rgba(106,247,194,.08);border:1px solid rgba(106,247,194,.25);border-radius:10px;padding:12px;">
+            <div style="font-weight:700;color:var(--accent3);margin-bottom:6px;font-size:0.82rem;">🎓 Hausse des niveaux de formation</div>
+            <div style="font-size:0.77rem;color:var(--muted);line-height:1.7">Massification scolaire → ↑ diplômés → flux ascendants<br>⚠️ Paradoxe d'Anderson : inflation scolaire → déclassement</div>
+          </div>
+          <div style="background:rgba(247,194,106,.08);border:1px solid rgba(247,194,106,.25);border-radius:10px;padding:12px;">
+            <div style="font-weight:700;color:var(--accent4);margin-bottom:6px;font-size:0.82rem;">👨‍👩‍👧 Ressources familiales (Bourdieu)</div>
+            <div style="font-size:0.77rem;color:var(--muted);line-height:1.7">Capital culturel : diplômes, savoirs, langage<br>Capital social : réseau, « piston »<br>Capital économique : cours privés, patrimoine<br>Homogamie : concentration des ressources</div>
+          </div>
+          <div style="background:rgba(106,171,247,.08);border:1px solid rgba(106,171,247,.25);border-radius:10px;padding:12px;">
+            <div style="font-weight:700;color:var(--accent5);margin-bottom:6px;font-size:0.82rem;">🏠 Configurations familiales</div>
+            <div style="font-size:0.77rem;color:var(--muted);line-height:1.7">Taille fratrie (petite = ressources concentrées)<br>Rang (aînés avantagés = « locomotives »)<br>Diplôme de la mère (+ déterminant que père)<br>Type de famille (monoparentale = − chances)</div>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="schema-box">
+        <h4>6. Le paradoxe d'Anderson</h4>
+        <div style="overflow-x:auto;margin-top:8px;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.79rem;">
+            <thead><tr style="background:rgba(247,106,138,.08);">
+              <th style="padding:8px;border:1px solid var(--border)"></th>
+              <th style="padding:8px;border:1px solid var(--border);color:var(--accent3)">Génération des pères (Trente Glorieuses)</th>
+              <th style="padding:8px;border:1px solid var(--border);color:var(--accent2)">Génération des fils (aujourd'hui)</th>
+            </tr></thead>
+            <tbody>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600">Diplômés du supérieur</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Peu nombreux</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Très nombreux (massification)</td></tr>
+              <tr style="background:rgba(255,255,255,.02)"><td style="padding:8px;border:1px solid var(--border);font-weight:600">Postes de cadres disponibles</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Supérieurs au nombre de diplômés → pères non diplômés obtiennent des postes de cadres</td><td style="padding:8px;border:1px solid var(--border);color:var(--muted)">Inférieurs au nombre de diplômés → fils diplômés n'obtiennent pas de postes de cadres</td></tr>
+              <tr><td style="padding:8px;border:1px solid var(--border);font-weight:600">Résultat</td><td style="padding:8px;border:1px solid var(--border);color:var(--accent3)">↑ Mobilité ascendante facile</td><td style="padding:8px;border:1px solid var(--border);color:var(--accent2)">↑ Déclassement intergénérationnel</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:8px;padding:10px 14px;background:rgba(247,194,106,.08);border-left:3px solid var(--accent4);border-radius:0 8px 8px 0;font-size:0.78rem;color:var(--muted);">
+          <strong style="color:var(--accent4)">Conclusion :</strong> avoir un diplôme plus élevé que ses parents ne garantit plus une position sociale plus élevée → <strong>inflation scolaire</strong>. Alimente des flux de mobilité <em>descendante</em> (Chauvel, <em>La spirale du déclassement</em>, 2016).
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- SYNTHESES -->
+  <div id="seq6-synthese" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">📝</span>Synthèses par sous-partie</h3>
+      <div class="schema-box">
+        <h4>Intro — Définir la mobilité sociale</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">La <strong>mobilité sociale intergénérationnelle</strong> désigne le changement de position sociale d'un individu par rapport à celle de ses parents. Elle s'oppose à la <strong>reproduction sociale</strong>. À distinguer de la mobilité professionnelle (intragénérationnelle). La mobilité peut être verticale ascendante (ascension), descendante (déclassement) ou horizontale. Elle se mesure par les <strong>tables de mobilité</strong> de l'INSEE (enquêtes FQP tous les 10-15 ans, personnes de 30-59 ans).</p>
+      </div>
+      <div class="schema-box">
+        <h4>I-A — Les tables de mobilité : principes et limites</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">L'INSEE croise PCS actuelle × PCS du père (6 PCS). La <strong>table brute</strong> donne les effectifs. La <strong>table de destinée</strong> (en ligne %) répond à "que deviennent les fils ?". La <strong>table de recrutement</strong> (en colonne %) répond à "d'où viennent les fils ?". Diagonale = reproduction sociale. Trois limites : (1) 6 PCS masquent des flux internes (Hugree, 24 CSP) ; (2) elles négligent la <strong>mobilité subjective</strong> (plus de 50 % des actifs surestiment ou sous-estiment leur position) ; (3) elles n'ont longtemps mesuré que la mobilité des <strong>hommes</strong>.</p>
+      </div>
+      <div class="schema-box">
+        <h4>I-B — Mobilité observée et mobilité structurelle</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">La <strong>mobilité observée</strong> = 63,5 % en France (FQP 2014-2015), stable depuis 1993. Une partie est la <strong>mobilité structurelle</strong> (≈ 26,6 %) : due à l'évolution de la structure des emplois (baisse des agriculteurs, hausse des CPIS), elle contraint les individus à changer de PCS indépendamment de leur volonté. Elle ne traduit pas une plus grande égalité des chances mais des contraintes de l'offre d'emploi.</p>
+      </div>
+      <div class="schema-box">
+        <h4>I-C — La fluidité sociale</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">La <strong>fluidité sociale</strong> mesure la force du lien entre origine et position sociale, indépendamment de la structure des emplois. Elle se calcule via les <strong>odds ratios</strong> : rapport entre chances relatives de deux groupes. En 2015, odds ratio cadres/ouvriers ≈ 23,5 (forte inégalité). Quand odds ratio = 1 → égalité parfaite des chances. En France, la fluidité a <strong>progressé entre 1977 et 2015</strong>, mais une société plus mobile n'est pas nécessairement plus fluide.</p>
+      </div>
+      <div class="schema-box">
+        <h4>II-B — La hausse des niveaux de formation et ses limites</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">La <strong>massification scolaire</strong> et la <strong>démocratisation scolaire</strong> ont favorisé des flux de mobilité ascendante depuis les années 1960. Le diplôme conditionne fortement la position sociale. Cependant, le <strong>paradoxe d'Anderson</strong> montre que la hausse généralisée des diplômes a produit une <em>inflation scolaire</em> : des individus diplômés se retrouvent dans des positions inférieures à celles de leurs parents (déclassement, Chauvel). Le diplôme reste un levier mais ne protège plus aussi efficacement.</p>
+      </div>
+      <div class="schema-box">
+        <h4>II-C — Le rôle des ressources et configurations familiales</h4>
+        <p style="font-size:0.82rem;color:var(--muted);line-height:1.7;">Selon Bourdieu, la famille transmet trois types de capitaux : le <strong>capital culturel</strong> (diplômes, savoirs, maîtrise du langage), le <strong>capital social</strong> (réseau, effet piston) et le <strong>capital économique</strong> (cours privés, patrimoine). L'<strong>homogamie sociale</strong> concentre ces ressources dans les mêmes familles. Les <strong>configurations familiales</strong> jouent aussi : taille de la fratrie (petite = ressources concentrées), rang (aînés avantagés), diplôme de la mère (plus déterminant que celui du père), structure du foyer (monoparentale = conditions dégradées).</p>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- QCM -->
+  <div id="seq6-qcm" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-red">✅</span>QCM d'entraînement — Séquence 6</h3>
+      <div class="quiz-container" id="quiz6"></div>
+    </div>
+  </div>
+ 
+  <!-- VF -->
+  <div id="seq6-vf" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 6</h3>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement. Entraîne-toi !</p>
+      <div id="vf6"></div>
+    </div>
+  </div>
+ 
+  <!-- BAC -->
+  <div id="seq6-bac" class="tab-panel">
+    <div class="section-block">
+      <h3><span class="icon icon-blue">🎓</span>Sujets de Bac — Séquence 6</h3>
+      <div class="bac-disclaimer">⚠️ Ces sujets sont inspirés du programme officiel et des annales. Plans indicatifs.</div>
+      <div id="bac6"></div>
+    </div>
+  </div>
+</div>
+  
 <!-- PAGE MÉTHODOLOGIE -->
 <div id="page-methodo" class="extra-page">
   <div class="content-header">
@@ -2690,6 +3017,32 @@ const definitions = {
     { term: "Féminisation des emplois", def: "Augmentation de la part des femmes dans la population active. Taux d'emploi féminin > 60% ; elles représentent 49,6% des actifs en 2023 (vs 34,3% en 1954). Persistance d'inégalités : surreprésentation dans les emplois précaires, à temps partiel, moins bien rémunérées (-13,5% en 2023)." },
     { term: "QPV (Quartiers Prioritaires de la Politique de la Ville)", def: "Territoires définis par l'État comme concentrant des difficultés socioéconomiques importantes (taux de pauvreté, chômage, moindre réussite scolaire). L'État y investit des ressources pour réduire les inégalités territoriales. Facteur de structuration de l'espace social." },
   ],
+6: [
+  { term: "Mobilité sociale (intergénérationnelle)", def: "Changement de position sociale d'un individu par rapport à la position sociale occupée par l'un de ses parents (généralement le père). Se mesure grâce aux tables de mobilité de l'INSEE (enquêtes FQP). S'oppose à la reproduction sociale." },
+  { term: "Mobilité géographique", def: "Recouvre les migrations (changement de pays de résidence), la mobilité résidentielle (changement de résidence au sein d'un même pays) et la mobilité quotidienne." },
+  { term: "Mobilité professionnelle (intragénérationnelle)", def: "Changement de profession, d'entreprise et/ou de niveau de qualification au cours d'une même carrière. À ne pas confondre avec la mobilité sociale intergénérationnelle." },
+  { term: "Reproduction sociale", def: "Fait que les enfants occupent les mêmes positions sociales que celles occupées par leurs parents. S'oppose à la mobilité sociale. Visible sur la diagonale d'une table de mobilité." },
+  { term: "Mobilité ascendante", def: "Situation dans laquelle un individu occupe une PCS plus élevée que celle de son père. Aussi appelée ascension sociale." },
+  { term: "Mobilité descendante (déclassement)", def: "Situation dans laquelle un individu occupe une PCS moins élevée que celle de son père. Aussi appelé déclassement social." },
+  { term: "Mobilité horizontale", def: "Changement de PCS sans changement de statut social hiérarchique. Ex : un fils d'agriculteur qui devient ouvrier." },
+  { term: "Table de mobilité (brute)", def: "Tableau à double entrée croisant les PCS des individus avec celles de leurs pères. Construite par l'INSEE (enquêtes FQP). Lecture en ligne = destinées sociales. Lecture en colonne = recrutement social. Diagonale = immobilité/reproduction sociale." },
+  { term: "Table de recrutement", def: "Table de mobilité en % lue en colonne. Répond à : 'd'où proviennent les fils ?' Ex : 3,9 % des CPIS avaient un père agriculteur. Diagonale = autorecrutement." },
+  { term: "Table de destinée", def: "Table de mobilité en % lue en ligne. Répond à : 'que deviennent les fils ?' Ex : 8,8 % des fils d'agriculteurs sont devenus CPIS. Diagonale = reproduction sociale." },
+  { term: "Mobilité observée", def: "Ensemble des changements de position sociale constatés pour une génération (mobilité totale). En France (FQP 2014-2015) : 63,5 % (taux de reproduction sociale = 36,5 %). Stable depuis 1993." },
+  { term: "Mobilité structurelle", def: "Part de la mobilité observée qui s'explique par l'évolution de la structure socioprofessionnelle entre générations (tertiarisation, salarisation, hausse des CPIS…). Ne traduit pas une plus grande égalité des chances. ≈ 26,6 % en France (FQP 2014)." },
+  { term: "Fluidité sociale", def: "Mesure la force du lien entre origine sociale et position sociale, indépendamment de la structure socioprofessionnelle. Calculée via les odds ratios. Une société plus mobile n'est pas nécessairement plus fluide." },
+  { term: "Odds ratio (rapport de chances relatives)", def: "Rapport entre les chances relatives de deux groupes d'atteindre une PCS. Ex (2015) : fils de cadre = 4,7 ; fils d'ouvrier = 0,2 ; odds ratio = 23,5. Si odds ratio = 1 → égalité parfaite des chances." },
+  { term: "Massification scolaire", def: "Processus d'augmentation du nombre d'élèves ayant accès à l'école et à l'enseignement supérieur. Entre 1985 et 2015, les diplômes d'école de commerce ont été multipliés par 4,9." },
+  { term: "Démocratisation scolaire", def: "Processus d'égalisation des conditions d'accès aux formations et aux diplômes selon l'origine sociale. Moins avancée que la massification." },
+  { term: "Paradoxe d'Anderson", def: "Avoir un diplôme plus élevé que ses parents ne garantit plus une position sociale plus élevée. S'explique par l'inflation scolaire : le nombre de diplômés a augmenté plus vite que le nombre de postes qualifiés disponibles." },
+  { term: "Inflation scolaire (dévalorisation des diplômes)", def: "Les diplômes perdent de leur valeur sur le marché du travail car ils sont devenus plus fréquents. Alimente des flux de mobilité descendante. Analysé par Louis Chauvel (La spirale du déclassement, 2016)." },
+  { term: "Capital culturel (Bourdieu)", def: "Ressources culturelles transmises par la famille : diplômes (institutionnalisé), savoirs incorporés, maîtrise du langage, livres (objectivé). Inégalement distribué selon l'origine sociale, il reproduit les inégalités scolaires." },
+  { term: "Capital social", def: "Réseau de relations que peuvent mobiliser les individus. Utilisé pour obtenir un emploi qualifié (effet 'piston'). À diplôme égal, les enfants bien dotés en capital social ont un avantage sur ceux qui le sont faiblement." },
+  { term: "Homogamie sociale", def: "Tendance à se mettre en couple avec une personne de position sociale et/ou de niveau de diplôme proche. Concentre les ressources dans les mêmes familles, amplifiant la transmission des inégalités." },
+  { term: "Configuration familiale", def: "Structure et composition de la famille. Influence les chances de mobilité : taille de la fratrie, rang (aînés avantagés), diplôme de la mère (plus déterminant que celui du père), type de famille (monoparentale = conditions dégradées)." },
+  { term: "Déclassement social (intergénérationnel)", def: "Situation dans laquelle un individu occupe une position sociale inférieure à celle de ses parents, tout en disposant d'un diplôme équivalent ou supérieur (paradoxe d'Anderson). Analysé par Louis Chauvel." },
+  { term: "Mobilité subjective", def: "La manière dont les individus perçoivent leurs trajectoires sociales. Ne coïncide pas toujours avec les données objectives. Plus de 50 % des actifs sous-estiment (21,8 %) ou surestiment (30,7 %) leur position sociale." },
+]
 };
 
 const quizzes = {
@@ -2778,11 +3131,28 @@ const quizzes = {
     { q: "Quelle est la part des 25-34 ans ayant un diplôme supérieur à bac+2 en France en 2023 vs les 55-64 ans ?", options: ["20 % vs 8 %", "39,6 % vs 16,3 %", "52 % vs 25 %", "28 % vs 12 %"], answer: 1, explication: "En 2023, 39,6 % des 25-34 ans ont un diplôme supérieur à bac+2, contre seulement 16,3 % des 55-64 ans. Cela illustre la massification scolaire (collège unique 1975, bac professionnel 1985, objectif 80 % au bac) et l'élévation générale du niveau de qualification depuis les années 1970. Plus de 40 % de la population active est aujourd'hui diplômée du supérieur." },
     { q: "Pourquoi peut-on dire que la féminisation de l'emploi reste incomplète malgré la hausse du taux d'activité des femmes ?", options: ["Parce que les femmes travaillent moins que les hommes en termes de qualification", "Parce que les femmes sont surreprésentées dans les emplois à temps partiel, moins bien…", "Parce que les hommes travaillent toujours plus d'heures annuelles", "Parce que les lois sur l'égalité de rémunération n'ont jamais été votées en France"], answer: 1, explication: "Malgré la progression spectaculaire (34,3 % d'actives en 1954 → 49,6 % en 2023), des inégalités persistent : surreprésentation dans les emplois à temps partiel, écart salarial persistant (-13,5 % en EQTP dans le privé), sous-représentation aux postes de direction et de responsabilité. Ces inégalités s'expliquent par la ségrégation professionnelle, les discriminations et la charge domestique." },
   ],
+6: [
+  { q:"Quelle est la différence entre mobilité intergénérationnelle et mobilité intragénérationnelle ?", options:["La mobilité intergénérationnelle compare les salaires, la mobilité intragénérationnelle compare les diplômes","La mobilité intergénérationnelle compare la position sociale d'un individu à celle de ses parents ; la mobilité intragénérationnelle est la mobilité professionnelle au cours d'une même carrière","Elles sont synonymes","La mobilité intergénérationnelle concerne uniquement les femmes"], answer:1, explication:"La mobilité sociale (intergénérationnelle) compare la PCS d'un individu à celle de son père. La mobilité professionnelle (intragénérationnelle) désigne les changements de profession au cours d'une même carrière. Ce sont deux concepts distincts." },
+  { q:"Que mesure la diagonale d'une table de mobilité brute ?", options:["La mobilité ascendante","La mobilité descendante","La reproduction sociale (immobilité)","Le taux de chômage par PCS"], answer:2, explication:"La diagonale regroupe tous les individus dont la PCS est identique à celle de leur père : c'est la reproduction sociale ou immobilité sociale." },
+  { q:"Selon l'enquête FQP 2014-2015, quel est le taux de mobilité observée en France ?", options:["36,5 %","50 %","63,5 %","75 %"], answer:2, explication:"Taux de reproduction sociale = 36,5 % → mobilité observée = 100 − 36,5 = 63,5 %. Environ 2/3 des actifs ont une PCS différente de celle de leur père. Stable depuis 1993." },
+  { q:"Qu'est-ce que la mobilité structurelle ?", options:["La mobilité due à l'égalisation des chances entre individus","La part de la mobilité observée qui s'explique par l'évolution de la structure socioprofessionnelle entre générations","La mobilité des individus entre différentes régions","La mobilité liée à l'augmentation des diplômes"], answer:1, explication:"La mobilité structurelle est imposée par l'évolution de la structure des emplois (baisse des agriculteurs, hausse des CPIS). Elle ne traduit pas une plus grande égalité des chances mais des contraintes de l'offre d'emplois. ≈ 26,6 % en France (FQP 2014)." },
+  { q:"Si l'odds ratio entre fils de cadres et fils d'ouvriers vaut 1, cela signifie :", options:["Les fils de cadres ont 1 fois plus de chances de devenir cadres","Il y a une égalité parfaite des chances entre les deux groupes","Les fils d'ouvriers ont 1 % de chances de devenir cadres","La fluidité sociale est nulle"], answer:1, explication:"Quand l'odds ratio = 1, les deux groupes ont exactement les mêmes chances relatives d'atteindre une PCS → égalité parfaite des chances. Plus il s'éloigne de 1, plus les inégalités sont fortes." },
+  { q:"Quelle est la différence entre une table de recrutement et une table de destinée ?", options:["La table de recrutement lit les données en ligne, la table de destinée en colonne","La table de recrutement (en colonne %) répond à 'd'où viennent les fils ?', la table de destinée (en ligne %) répond à 'que deviennent les fils ?'","Elles sont identiques","La table de recrutement concerne les femmes, la table de destinée les hommes"], answer:1, explication:"Table de recrutement (en colonne) : d'où proviennent les fils d'une PCS ? Table de destinée (en ligne) : que deviennent les fils d'une origine sociale ? La dernière ligne/colonne 'Ensemble' indique la structure de chaque génération." },
+  { q:"Qu'est-ce que le paradoxe d'Anderson ?", options:["Plus on est diplômé, moins on a de chances d'être chômeur","Avoir un diplôme plus élevé que ses parents ne garantit plus une position sociale plus élevée","Les fils d'ouvriers ont autant de chances de devenir cadres que les fils de cadres","La fluidité sociale augmente mécaniquement avec la mobilité sociale"], answer:1, explication:"La hausse généralisée des diplômes (inflation scolaire) les a dévalués. Des individus diplômés du supérieur se retrouvent dans des positions inférieures à celles de leurs parents → déclassement intergénérationnel (Chauvel)." },
+  { q:"Selon France Stratégie (2023), quelle est la part des enfants de cadres titulaires d'un Master+ qui occupent un emploi de cadre 5 à 8 ans après leurs études ?", options:["43 %","59 %","70 %","85 %"], answer:2, explication:"70 % des enfants de cadres avec un Master+ vs 43 % des enfants d'ouvriers avec le même diplôme. À diplôme égal, l'origine sociale (capital social, culturel) continue de peser sur les chances d'accès à un emploi de cadre." },
+  { q:"Pourquoi l'homogamie sociale amplifie-t-elle les inégalités ?", options:["Car elle réduit le nombre de mariages","Car elle concentre les ressources culturelles, sociales et économiques dans les mêmes familles, qui les transmettent plus facilement à leurs enfants","Car elle empêche la mobilité géographique","Car elle favorise uniquement les classes populaires"], answer:1, explication:"L'homogamie (se mettre en couple avec quelqu'un de même milieu social) concentre les capitaux dans certaines familles. Effet boule de neige sur les générations suivantes." },
+  { q:"Une société plus mobile est-elle nécessairement plus fluide ?", options:["Oui, car plus de mobilité implique plus d'égalité des chances","Non, car la hausse de la mobilité peut être entièrement due à la mobilité structurelle sans amélioration de la fluidité","Oui, fluidité et mobilité sont synonymes","Non, car la fluidité ne concerne que les hommes"], answer:1, explication:"Non. La mobilité observée peut augmenter uniquement grâce à la mobilité structurelle (évolution de la structure des emplois), sans que le lien entre origine sociale et position sociale s'affaiblisse. Ex du Nefarc fictif." },
+  { q:"Quel auteur a analysé le déclassement des générations nées après 1965 en France ?", options:["Pierre Bourdieu","Henri Mendras","Louis Chauvel","Érik Neveu"], answer:2, explication:"Louis Chauvel (La spirale du déclassement, 2016) montre que ces générations connaissent des trajectoires moins ascendantes que leurs parents, en raison de l'inflation scolaire et du chômage de masse post-Trente Glorieuses." },
+  { q:"Quel effet a la taille de la fratrie sur la mobilité sociale ?", options:["Plus le nombre d'enfants est élevé, plus les ressources familiales se concentrent sur chacun","Plus le nombre d'enfants est faible, plus la possibilité d'ascension sociale est élevée car les ressources se concentrent sur un nombre réduit d'enfants","La taille de la fratrie n'a aucun effet","Plus la fratrie est grande, plus les enfants s'entraident"], answer:1, explication:"Plus la fratrie est petite, plus les ressources familiales (argent, temps parental, espace) se concentrent sur chaque enfant, favorisant sa réussite scolaire et son ascension sociale." },
+  { q:"Qu'est-ce que la mobilité subjective ?", options:["La mobilité mesurée par les tables de mobilité de l'INSEE","La manière dont les individus perçoivent eux-mêmes leur trajectoire sociale, qui ne coïncide pas toujours avec les données objectives","La mobilité entre pays différents","La mobilité dans la carrière professionnelle"], answer:1, explication:"La mobilité subjective est la perception individuelle de son parcours social. Plus de la moitié des actifs surestiment (30,7 %) ou sous-estiment (21,8 %) leur position sociale par rapport aux tables de mobilité objectives." },
+  { q:"Pourquoi les tables de mobilité n'ont-elles longtemps mesuré que la mobilité des hommes ?", options:["Par choix idéologique","Car les femmes n'étaient pas en âge de travailler","Car le fort taux d'inactivité des femmes jusqu'aux années 60-70 rendait difficile la comparaison, et la structure des emplois est différente entre hommes et femmes","Car les femmes refusaient de répondre aux enquêtes"], answer:2, explication:"Jusqu'aux années 60-70, le fort taux d'inactivité féminine rendait la comparaison père/fille difficile. La structure des emplois (monde ouvrier peu féminisé) compliquait aussi les comparaisons." },
+  { q:"Qu'est-ce que l'inflation scolaire et quelle est sa conséquence ?", options:["Une hausse des frais de scolarité","Les diplômes perdent de leur valeur car ils sont devenus plus fréquents → des diplômés se retrouvent dans des positions inférieures à celles de leurs parents","Une augmentation du nombre d'écoles qui favorise la mobilité ascendante","Une politique d'État pour égaliser les diplômes"], answer:1, explication:"L'inflation scolaire = dévalorisation des diplômes sur le marché du travail. Des individus diplômés du supérieur obtiennent des postes d'un niveau inférieur à ce que leur diplôme permettait autrefois → mobilité descendante, déclassement professionnel." },
+]
 };
 
 // ===== INIT DEFS =====
 function buildDefs() {
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const cont = document.getElementById('def' + s);
     if (!cont) continue;
     definitions[s].forEach(d => {
@@ -2798,7 +3168,7 @@ function buildDefs() {
 // ===== INIT QUIZZES =====
 const quizState = {};
 function buildQuizzes() {
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const cont = document.getElementById('quiz' + s);
     if (!cont) continue;
     quizState[s] = { answered: 0, correct: 0, total: quizzes[s].length };
@@ -2875,7 +3245,7 @@ function resetQuiz(s) { renderQuiz(s); }
 // ===== NAVIGATION =====
 function showHome() {
   document.getElementById('home').style.display = '';
-  for (let i = 1; i <= 5; i++) document.getElementById('seq' + i).classList.remove('active');
+  for (let i = 1; i <= 6; i++) document.getElementById('seq' + i).classList.remove('active');
   document.querySelectorAll('.extra-page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach((b,i) => b.classList.toggle('active', i===0));
   window.scrollTo(0,0);
@@ -2883,7 +3253,7 @@ function showHome() {
 
 function showSeq(n) {
   document.getElementById('home').style.display = 'none';
-  for (let i = 1; i <= 5; i++) document.getElementById('seq' + i).classList.toggle('active', i===n);
+  for (let i = 1; i <= 6; i++) document.getElementById('seq' + i).classList.toggle('active', i===n);
   document.querySelectorAll('.extra-page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach((b,i) => b.classList.toggle('active', i===n));
   window.scrollTo(0,0);
@@ -2902,7 +3272,7 @@ function switchTab(seq, tab) {
 // ===== EXTRA PAGES =====
 function showExtra(page) {
   document.getElementById('home').style.display = 'none';
-  for (let i = 1; i <= 5; i++) document.getElementById('seq'+i).classList.remove('active');
+  for (let i = 1; i <= 6; i++) document.getElementById('seq'+i).classList.remove('active');
   document.querySelectorAll('.extra-page').forEach(p => p.classList.remove('active'));
   const ep = document.getElementById('page-'+page);
   if (ep) ep.classList.add('active');
@@ -3093,7 +3463,29 @@ const vfData = {
     { q:"Les familles monoparentales sont plus souvent dirigées par des hommes.", r:false, expl:"Dans 9 cas sur 10, la personne en charge dans les familles monoparentales est une femme. Ces familles sont particulièrement exposées à la pauvreté (~31% sous le seuil de pauvreté), illustrant l'articulation genre-classe." },
     { q:"Le capital social de Bourdieu désigne les relations et réseaux d'un individu.", r:true, expl:"Le capital social = réseau de relations durables permettant d'obtenir des ressources rares (recommandations, informations, soutiens). Il contribue à la position dans l'espace social et à la reproduction des inégalités." },
     { q:"L'analyse de la société en termes de classes sociales est rendue caduque par l'individualisation.", r:false, expl:"L'individualisation fragilise MAIS n'invalide pas l'analyse classiste. Les distances inter-classes restent fortes, les inégalités s'accroissent (Gini patrimoine = 0,635), et 65% des Français s'identifient encore à une classe." },
-  ]
+  ],
+6: [
+  { q:"La mobilité professionnelle et la mobilité sociale intergénérationnelle désignent la même chose.", r:false, expl:"La mobilité professionnelle (intragénérationnelle) désigne le changement de profession au cours d'une carrière. La mobilité sociale (intergénérationnelle) compare la position sociale d'un individu à celle de ses parents. Ce sont deux concepts distincts." },
+  { q:"La diagonale d'une table de mobilité brute informe sur la reproduction sociale.", r:true, expl:"La diagonale regroupe les individus dont la PCS est identique à celle de leur père : c'est l'immobilité = reproduction sociale." },
+  { q:"En France (FQP 2014-2015), environ 63,5 % des actifs masculins sont en situation de mobilité sociale.", r:true, expl:"Taux de reproduction sociale = 36,5 %. Mobilité observée = 100 − 36,5 = 63,5 %. Environ 2/3 des actifs occupent une PCS différente de celle de leur père. Stable depuis 1993." },
+  { q:"La mobilité structurelle reflète une plus grande égalité des chances dans la société.", r:false, expl:"La mobilité structurelle résulte de l'évolution de la structure des emplois. Elle est indépendante de l'égalité des chances et ne signifie pas que l'origine sociale pèse moins sur les trajectoires." },
+  { q:"Un odds ratio égal à 1 signifie une égalité parfaite des chances entre deux groupes sociaux.", r:true, expl:"Quand l'odds ratio = 1, les deux groupes ont exactement les mêmes chances relatives d'atteindre une PCS. Plus il s'éloigne de 1, plus les inégalités de chances sont fortes." },
+  { q:"La fluidité sociale et la mobilité sociale mesurent exactement la même chose.", r:false, expl:"La mobilité sociale mesure les déplacements entre PCS (mobilité observée). La fluidité sociale mesure la force du lien entre origine et position sociale, indépendamment de la structure des emplois. Une société peut être plus mobile sans être plus fluide." },
+  { q:"Le paradoxe d'Anderson montre qu'avoir un diplôme plus élevé que ses parents garantit une position sociale supérieure.", r:false, expl:"C'est l'inverse : le paradoxe d'Anderson souligne que la hausse des diplômes (inflation scolaire) ne garantit plus une ascension sociale — elle peut même alimenter le déclassement." },
+  { q:"La massification scolaire et la démocratisation scolaire sont deux processus distincts.", r:true, expl:"La massification = hausse du nombre de diplômés (quantitative). La démocratisation = égalisation des conditions d'accès selon l'origine sociale (qualitative). La France a connu une forte massification mais une démocratisation plus limitée." },
+  { q:"Selon France Stratégie (2023), 70 % des enfants de cadres titulaires d'un Master+ occupent un emploi de cadre 5 à 8 ans après leurs études.", r:true, expl:"Contre seulement 43 % des enfants d'ouvriers avec le même diplôme. À diplôme égal, l'origine sociale continue de peser sur les chances d'accès à un emploi de cadre." },
+  { q:"La table de recrutement répond à la question 'que deviennent les fils ?'", r:false, expl:"La table de recrutement (lue en colonne) répond à 'd'où proviennent les fils ?'. La table de destinée (lue en ligne) répond à 'que deviennent les fils ?'" },
+  { q:"L'homogamie sociale tend à concentrer les ressources dans certaines familles et à amplifier les inégalités.", r:true, expl:"L'homogamie concentre les capitaux économique, culturel et social dans les mêmes familles, qui peuvent les transmettre plus facilement à leurs enfants." },
+  { q:"Le diplôme du père a un effet explicatif plus important que celui de la mère sur la trajectoire des individus.", r:false, expl:"Selon les études, le diplôme de la mère a un effet explicatif plus important, car l'éducation des enfants revient le plus souvent aux mères." },
+  { q:"Dans une famille nombreuse, les ressources familiales se concentrent davantage sur chaque enfant.", r:false, expl:"C'est l'inverse : plus la fratrie est grande, moins les ressources peuvent se concentrer sur chaque enfant, ce qui réduit les chances d'ascension sociale." },
+  { q:"Les tables de mobilité ont longtemps mesuré uniquement la mobilité sociale des hommes.", r:true, expl:"En raison du fort taux d'inactivité féminine jusqu'aux années 60-70 et de la différence de structure des emplois entre hommes et femmes, les tables de mobilité traditionnelles ne mesuraient que la mobilité des hommes." },
+  { q:"La mobilité subjective coïncide toujours avec la mobilité objective mesurée par les tables de mobilité.", r:false, expl:"Non. Plus de la moitié des actifs surestiment (30,7 %) ou sous-estiment (21,8 %) leur position sociale par rapport aux tables de mobilité objectives." },
+  { q:"Louis Chauvel a analysé le déclassement des générations nées après 1965 en France.", r:true, expl:"Chauvel (La spirale du déclassement, 2016) montre que ces générations connaissent des trajectoires moins ascendantes que leurs parents, en raison de l'inflation scolaire et du chômage de masse post-Trente Glorieuses." },
+  { q:"La mobilité ascendante désigne un changement de PCS sans changement de statut hiérarchique.", r:false, expl:"La mobilité ascendante = occuper une PCS plus élevée que celle du père (ascension sociale). La mobilité horizontale désigne un changement de PCS sans changement de niveau hiérarchique." },
+  { q:"L'enquête FQP interroge les individus sur leur PCS actuelle et celle de leur père au moment de la fin de leurs études.", r:true, expl:"C'est le principe des enquêtes FQP : deux questions clés permettent de construire les tables de mobilité en croisant position actuelle et origine sociale." },
+  { q:"La fluidité sociale a progressé en France entre 1977 et 2015.", r:true, expl:"Selon les données du cours, la fluidité sociale a effectivement progressé entre 1977 et 2015 pour tous les groupes sociaux. La structure sociale tend à devenir moins rigide." },
+  { q:"Les aînés de la fratrie bénéficient généralement d'un avantage éducatif par rapport aux cadets.", r:true, expl:"Les aînés captent l'attention parentale exclusive en premier. Ils jouent parfois le rôle de 'locomotives' en transmettant leurs savoirs aux cadets." },
+]
 };
 
 // ===== BAC SUBJECTS DATA =====
@@ -3180,13 +3572,23 @@ const bacData = {
     { titre:"En quoi les rapports sociaux de genre complexifient-ils l'analyse de la société française ?", type:"EC3", annee:"Versailles 2020", plan:"I. Le genre structure des inégalités spécifiques → A) Ségrégation professionnelle · B) Écart salarial en EQTP (-13,5%) · C) Plafond de verre et sous-représentation aux postes de direction. II. L'articulation genre-classe révèle des inégalités cumulées → A) Familles monoparentales et pauvreté · B) Intersectionnalité · C) Nécessité d'articuler les deux grilles de lecture." },
     // --- Dissertation ---
     { titre:"La société française est-elle encore structurée en classes sociales ?", type:"Dissertation", annee:"Versailles 2023", plan:"I. Des indicateurs solides plaident pour la persistance des classes → A) Distances inter-classes élevées (revenus, patrimoine, pratiques) · B) Gini patrimoine = 0,635 · C) 65% des Français s'identifient à une classe (2016). II. Des évolutions remettent en cause cette grille → A) Moyennisation de Mendras · B) Individualisation et recul de la conscience de classe · C) Rapports de genre et intersectionnalité." },
-  ]
+  ],
+6: [
+  { titre:"Vous présenterez deux limites des tables de mobilité comme instrument de mesure de la mobilité sociale.", type:"EC1", annee:"Programme officiel", plan:"Limite 1 : le nombre de PCS retenues (6) masque des flux internes (ex : Hugree, 24 CSP révèle que 20 % des fils d'ouvriers NQ deviennent ouvriers qualifiés — flux invisible avec 6 PCS). Limite 2 : les tables négligent la mobilité subjective (perception des individus ≠ données objectives : 21,8 % sous-estiment, 30,7 % surestiment leur position). Limite optionnelle : longtemps réservées aux hommes (inactivité féminine, structure des emplois différente)." },
+  { titre:"Vous illustrerez et expliquerez une situation de mobilité ascendante et une situation de reproduction sociale.", type:"EC2", annee:"Programme officiel", plan:"Q1 : Présentation de la table (source INSEE FQP 2014-2015, champ, unité). Mobilité ascendante : ex 269 000 fils d'ouvriers devenus CPIS. Reproduction sociale : ex 453 000 CPIS fils de CPIS (diagonale). Q2 : Mécanismes → ascendante : massification scolaire, diplôme, capital culturel. Reproduction : transmission des capitaux (Bourdieu), homogamie, configurations familiales." },
+  { titre:"Vous montrerez que l'évolution de la structure professionnelle contribue à expliquer la mobilité sociale.", type:"EC3", annee:"Programme officiel", plan:"I. La mobilité structurelle : un facteur puissant → A) Tertiarisation : baisse AE (674 000 → 217 000), hausse CPIS (904 000 → 1 369 000) · B) Salarisation des emplois · C) Flux contraints par l'offre d'emploi, indépendants de l'égalité des chances. II. Mais la structure n'explique pas tout → A) La fluidité sociale progresse aussi (odds ratios) · B) Diplôme et ressources familiales ont un rôle propre · C) Paradoxe d'Anderson : limites de l'explication structurelle." },
+  { titre:"Vous montrerez que les ressources et les configurations familiales jouent un rôle dans la mobilité sociale.", type:"EC3", annee:"Programme officiel", plan:"I. Les ressources familiales → A) Capital culturel (Bourdieu) : diplômes, savoirs incorporés, maîtrise du langage · B) Capital social : réseau, 'piston' (à diplôme égal, 70 % vs 43 % emplois cadres) · C) Capital économique : cours privés, patrimoine, entrepreneuriat. II. Les configurations familiales → A) Taille de la fratrie (petite = ressources concentrées) · B) Rang dans la fratrie (aînés avantagés, rôle de locomotives) · C) Diplôme de la mère (plus déterminant) + homogamie sociale." },
+  { titre:"Comment expliquer la mobilité sociale ?", type:"Dissertation", annee:"Programme officiel", plan:"PB : La mobilité sociale résulte-t-elle d'une amélioration de l'égalité des chances ?\nI. Les facteurs de la structure socioprofessionnelle → A) Mobilité structurelle : tertiarisation, salarisation créent des flux mécaniques · B) Hausse des niveaux de formation → flux ascendants · C) Paradoxe d'Anderson : inflation scolaire → flux descendants. II. Le rôle de la famille → A) Ressources familiales (capitaux de Bourdieu) · B) Configurations familiales (taille fratrie, rang, diplôme mère) · C) Homogamie : concentration et reproduction des ressources." },
+  { titre:"L'évolution de la structure socioprofessionnelle suffit-elle à expliquer la mobilité sociale ?", type:"Dissertation", annee:"Programme officiel", plan:"I. La mobilité structurelle est un facteur puissant → A) Tertiarisation et salarisation engendrent mécaniquement de la mobilité · B) La hausse des CPIS impose de recruter hors des fils de CPIS · C) Données : mobilité structurelle ≈ 26,6 % (FQP 2014). II. Elle ne suffit pas → A) La fluidité sociale progresse aussi (odds ratios en baisse) · B) Diplôme et ressources familiales ont un effet propre · C) Mobilité subjective et déclassement montrent les limites de l'explication structurelle." },
+  { titre:"Vous montrerez qu'une société plus mobile n'est pas nécessairement plus fluide.", type:"EC3", annee:"Programme officiel", plan:"I. Mobilité observée vs fluidité : deux mesures distinctes → A) Mobilité observée = tous les changements de PCS · B) Fluidité = force du lien entre origine et position (odds ratios) · C) La mobilité structurelle peut augmenter la première sans toucher à la seconde. II. Illustration → A) Pays du Nefarc fictif : plus mobile en 2080 mais même odds ratio · B) En France : mobilité stable à ~65 % depuis 1993, mais fluidité en hausse · C) Conclusion : la structure sociale peut devenir moins rigide sans que la mobilité totale augmente." },
+  { titre:"Quels sont les facteurs explicatifs de la mobilité sociale ?", type:"Dissertation", annee:"Programme officiel", plan:"I. Structure socioprofessionnelle et diplôme → A) Mobilité structurelle (tertiarisation, hausse CPIS) · B) Massification scolaire → flux ascendants · C) Paradoxe d'Anderson + inflation scolaire → flux descendants. II. Ressources et configurations familiales → A) Capitaux (culturel, social, économique, Bourdieu) · B) Homogamie et concentration des ressources · C) Taille fratrie, rang, diplôme mère." },
+]
 };
 
 // ===== BUILD VF =====
 const vfState = {};
 function buildVF() {
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const cont = document.getElementById('vf'+s);
     if (!cont) continue;
     renderVF(s);
@@ -3255,7 +3657,7 @@ const bacTypeConfig = {
 };
 
 function buildBac() {
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const cont = document.getElementById('bac'+s);
     if (!cont || !bacData[s]) continue;
     // Grouper par type pour afficher des en-têtes de section
@@ -3302,7 +3704,7 @@ let searchIndex = [];
 
 function buildSearchIndex() {
   // 1. Notions (depuis definitions JS)
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     if (!definitions[s]) continue;
     definitions[s].forEach(d => {
       searchIndex.push({
@@ -3317,7 +3719,7 @@ function buildSearchIndex() {
   }
 
   // 2. Auteurs (depuis le HTML — on parse les .section-block dans les onglets auteurs)
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const panel = document.getElementById(`seq${s}-auteurs`);
     if (!panel) continue;
     const items = panel.querySelectorAll('li');
@@ -3521,7 +3923,7 @@ async function loadAndRenderProgress() {
 
   // Organiser par séquence
   const bySeq = {};
-  for (let s = 1; s <= 5; s++) bySeq[s] = { qcm: null, vf: null };
+  for (let s = 1; s <= 6; s++) bySeq[s] = { qcm: null, vf: null };
   data.forEach(row => { bySeq[row.seq][row.type] = row; });
 
   // --- Affichage page d'accueil ---
@@ -3535,7 +3937,7 @@ async function loadAndRenderProgress() {
 
   let globalCorrect = 0, globalTotal = 0;
 
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     const qcm = bySeq[s].qcm;
     const vf = bySeq[s].vf;
     const hasData = qcm || vf;
@@ -3570,7 +3972,7 @@ async function loadAndRenderProgress() {
   totalEl.textContent = `${globalCorrect} bonnes réponses sur ${globalTotal} · ${globalPct}% de réussite`;
 
   // --- Mini-barres dans chaque séquence ---
-  for (let s = 1; s <= 5; s++) {
+  for (let s = 1; s <= 6; s++) {
     renderSeqMiniBar(s, bySeq[s]);
   }
 }
