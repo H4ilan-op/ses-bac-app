@@ -1054,7 +1054,7 @@
   <div id="seq1-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 1</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50. Entraîne-toi !</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30. Entraîne-toi !</p>
       <div id="vf1"></div>
     </div>
   </div>
@@ -1310,7 +1310,7 @@
   <div id="seq2-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 2</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50. Entraîne-toi !</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30. Entraîne-toi !</p>
       <div id="vf2"></div>
     </div>
   </div>
@@ -1580,7 +1580,7 @@
   <div id="seq3-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 3</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50.</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30.</p>
       <div id="vf3"></div>
     </div>
   </div>
@@ -1975,7 +1975,7 @@
   <div id="seq4-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 4</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50.</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30.</p>
       <div id="vf4"></div>
     </div>
   </div>
@@ -2342,7 +2342,7 @@
   <div id="seq5-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 5</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement parmi 50.</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30.</p>
       <div id="vf5"></div>
     </div>
   </div>
@@ -2665,7 +2665,7 @@
   <div id="seq6-vf" class="tab-panel">
     <div class="section-block">
       <h3><span class="icon icon-yellow">❓</span>Vrai / Faux — Séquence 6</h3>
-      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">10 questions tirées aléatoirement. Entraîne-toi !</p>
+      <p style="font-size:0.8rem;color:var(--muted);margin-bottom:16px;">5 questions tirées aléatoirement parmi 30</p>
       <div id="vf6"></div>
     </div>
   </div>
@@ -3485,6 +3485,21 @@ const vfData = {
   { q:"L'enquête FQP interroge les individus sur leur PCS actuelle et celle de leur père au moment de la fin de leurs études.", r:true, expl:"C'est le principe des enquêtes FQP : deux questions clés permettent de construire les tables de mobilité en croisant position actuelle et origine sociale." },
   { q:"La fluidité sociale a progressé en France entre 1977 et 2015.", r:true, expl:"Selon les données du cours, la fluidité sociale a effectivement progressé entre 1977 et 2015 pour tous les groupes sociaux. La structure sociale tend à devenir moins rigide." },
   { q:"Les aînés de la fratrie bénéficient généralement d'un avantage éducatif par rapport aux cadets.", r:true, expl:"Les aînés captent l'attention parentale exclusive en premier. Ils jouent parfois le rôle de 'locomotives' en transmettant leurs savoirs aux cadets." },
+  { q:"Les enquêtes FQP sont réalisées tous les 10 à 15 ans par l'INSEE.", r:true, expl:"Les enquêtes Formation et Qualification Professionnelle sont menées par l'INSEE depuis 1964, environ tous les 10-15 ans. Elles interrogent des personnes de 30 à 59 ans sur leur PCS actuelle et celle de leur père." },
+  { q:"La table de destinée se lit en colonne.", r:false, expl:"La table de destinée se lit en LIGNE : elle répond à 'que deviennent les fils ?'. La table de recrutement se lit en colonne : elle répond à 'd'où viennent les fils ?'" },
+{ q:"La mobilité structurelle est indépendante de la volonté des individus.", r:true, expl:"La mobilité structurelle est imposée par l'évolution de la structure des emplois (tertiarisation, baisse des agriculteurs, hausse des CPIS). Elle ne dépend pas des choix individuels ni de l'égalité des chances." },
+{ q:"La fluidité sociale a régressé entre 1977 et 2015 en France.", r:false, expl:"La fluidité sociale a au contraire PROGRESSÉ entre 1977 et 2015 pour tous les groupes sociaux. La structure sociale tend à devenir moins rigide, même si des inégalités de chances importantes persistent." },
+{ q:"Un odds ratio supérieur à 1 indique une inégalité de chances entre deux groupes.", r:true, expl:"Plus l'odds ratio s'éloigne de 1, plus les inégalités de chances sont fortes. Un odds ratio de 23,5 entre fils de cadres et fils d'ouvriers (2015) indique une très forte inégalité de chances d'accès aux emplois de cadres." },
+{ q:"La massification scolaire a garanti une démocratisation complète de l'accès aux diplômes.", r:false, expl:"La massification (hausse quantitative du nombre de diplômés) ne s'est pas accompagnée d'une démocratisation complète. Les inégalités d'origine sociale persistent à diplôme équivalent selon France Stratégie (2023)." },
+{ q:"Le capital économique permet aux familles aisées de compenser un échec scolaire.", r:true, expl:"Le capital économique (revenus et patrimoine) permet de financer des cours particuliers, des écoles privées, ou même une entreprise familiale. C'est un avantage décisif des familles aisées face au déclassement scolaire." },
+{ q:"L'homogamie sociale désigne le fait de se mettre en couple avec quelqu'un d'une classe sociale différente.", r:false, expl:"L'homogamie sociale est exactement l'inverse : c'est la tendance à se mettre en couple avec quelqu'un du MÊME milieu social ou niveau de diplôme. Elle concentre les ressources dans les mêmes familles et amplifie les inégalités." },
+{ q:"Un fils d'ouvrier qui devient employé connaît une mobilité ascendante.", r:false, expl:"Ouvrier et employé sont deux PCS de même niveau hiérarchique. Il s'agit d'une mobilité HORIZONTALE (changement de PCS sans changement de statut hiérarchique), pas d'une mobilité ascendante." },
+{ q:"Le diplôme de la mère est plus déterminant que celui du père pour la trajectoire des enfants.", r:true, expl:"Les études montrent que le diplôme de la mère a un effet explicatif plus important car l'éducation des enfants revient le plus souvent aux mères. C'est l'un des facteurs clés des configurations familiales dans la mobilité sociale." },
+{ q:"La petite taille d'une fratrie favorise la concentration des ressources sur chaque enfant.", r:true, expl:"Plus la fratrie est petite, plus les ressources familiales (argent, temps parental, espace) se concentrent sur chaque enfant, favorisant sa réussite scolaire et ses chances de mobilité ascendante." },
+{ q:"Louis Chauvel a analysé la mobilité ascendante des générations nées après 1965.", r:false, expl:"Louis Chauvel a analysé le DÉCLASSEMENT des générations nées après 1965 dans La spirale du déclassement (2016). Ces générations connaissent des trajectoires moins ascendantes que leurs parents en raison de l'inflation scolaire." },
+{ q:"France Stratégie (2023) montre qu'à diplôme égal, l'origine sociale n'a plus d'effet sur l'accès à l'emploi de cadre.", r:false, expl:"C'est faux. À diplôme égal (Master+), 70% des enfants de cadres accèdent à un emploi de cadre contre seulement 43% des enfants d'ouvriers. L'origine sociale continue de peser significativement." },
+{ q:"La fluidité sociale peut progresser même si la mobilité observée reste stable.", r:true, expl:"En France depuis 1993, la mobilité observée est stable (~63,5%) mais la fluidité sociale a progressé (odds ratios en baisse). Le lien entre origine et position s'affaiblit légèrement, indépendamment des changements de structure des emplois." },
+{ q:"La configuration familiale monoparentale favorise les chances de mobilité ascendante.", r:false, expl:"Les enfants de familles monoparentales ont une plus forte probabilité d'échec scolaire en raison de conditions dégradées : logement plus petit, baisse du niveau de vie, conflits parentaux. Ces conditions réduisent les chances de mobilité ascendante." },
 ]
 };
 
@@ -3600,8 +3615,8 @@ function renderVF(s) {
   cont.innerHTML = '';
   const allQ = vfData[s];
   // Pick 10 random
-  const shuffled = [...allQ].sort(() => Math.random() - 0.5).slice(0, 10);
-  vfState[s] = { answered: 0, correct: 0, total: 10, qs: shuffled };
+  const shuffled = [...allQ].sort(() => Math.random() - 0.5).slice(0, 5);
+  vfState[s] = { answered: 0, correct: 0, total: 5, qs: shuffled };
   shuffled.forEach((q, qi) => {
     const div = document.createElement('div');
     div.className = 'vf-q';
@@ -3873,13 +3888,13 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // ===== NOMS DES SÉQUENCES =====
 const seqNames = {
-  1: 'Croissance', 2: 'Environnement', 3: 'Engagement', 4: 'Commerce int.', 5: 'Société française'
+  1: 'Croissance', 2: 'Environnement', 3: 'Engagement', 4: 'Commerce int.', 5: 'Société française', 6: 'Mobilité sociale'
 };
 const seqColors = {
-  1: 'var(--accent1)', 2: 'var(--accent3)', 3: 'var(--accent2)', 4: 'var(--accent4)', 5: 'var(--accent5)'
+  1: 'var(--accent1)', 2: 'var(--accent3)', 3: 'var(--accent2)', 4: 'var(--accent4)', 5: 'var(--accent5)', 6: 'var(--accent3)'
 };
 const seqBgs = {
-  1: 'rgba(124,106,247,.25)', 2: 'rgba(106,247,194,.25)', 3: 'rgba(247,106,138,.25)', 4: 'rgba(247,194,106,.25)', 5: 'rgba(106,171,247,.25)'
+  1: 'rgba(124,106,247,.25)', 2: 'rgba(106,247,194,.25)', 3: 'rgba(247,106,138,.25)', 4: 'rgba(247,194,106,.25)', 5: 'rgba(106,171,247,.25)', 6: 'rgba(106,247,194,.25)'
 };
 
 // ===== ÉTAT LOCAL (pendant la session) =====
