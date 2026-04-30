@@ -3632,7 +3632,7 @@ function renderVF(s) {
   score.className = 'quiz-score'; score.id = 'vfscore-'+s; score.style.display = 'none';
   score.innerHTML = `<div style="color:var(--muted);font-size:.85rem;margin-bottom:4px">Score Vrai/Faux</div>
     <div class="score-num" id="vfscore-num-${s}">—</div>
-    <div style="font-size:.8rem;color:var(--muted);margin-top:4px">/ 10</div>
+    <div style="font-size:.8rem;color:var(--muted);margin-top:4px">/ 5</div>
     <button class="reset-btn" onclick="renderVF(${s})">Nouvelles questions</button>`;
   cont.appendChild(score);
 }
