@@ -517,9 +517,8 @@
   <!-- Toujours visible -->
   <button class="nav-btn" onclick="showExtra('methodo');closeNav()">📐 Méthodo</button>
 
-  <div class="profile-btn" onclick="toggleProfileMenu()" id="profile-btn">
+<div class="profile-btn" onclick="toggleProfileMenu()" id="profile-btn">
     <div class="profile-avatar" id="profile-avatar">?</div>
-    <div class="profile-dropdown" id="profile-dropdown">
       <div class="profile-email" id="profile-email">Non connecte</div>
       <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
         <span id="theme-icon">🌙</span>
@@ -530,6 +529,15 @@
     </div>
   </div>
 </nav>
+<div class="profile-dropdown" id="profile-dropdown">
+  <div class="profile-email" id="profile-email">Non connecte</div>
+  <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
+    <span id="theme-icon">🌙</span>
+    <span id="theme-label">Mode clair</span>
+  </button>
+  <button class="dropdown-item" id="btn-connexion" onclick="window.location.href='/auth.html'">🔑 Se connecter</button>
+  <button class="dropdown-item danger" id="btn-deconnexion" style="display:none" onclick="logout()">🚪 Se deconnecter</button>
+</div>
 
 <!-- HOME -->
 <div id="home">
