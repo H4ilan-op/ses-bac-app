@@ -517,7 +517,7 @@
   <!-- Toujours visible -->
   <button class="nav-btn" onclick="showExtra('methodo');closeNav()">📐 Méthodo</button>
 
-<div class="profile-btn" onclick="toggleProfileMenu()" id="profile-btn">
+<div class="profile-btn" onclick="toggleProfileMenu(event)" id="profile-btn">
     <div class="profile-avatar" id="profile-avatar">?</div>
       <div class="profile-email" id="profile-email">Non connecte</div>
       <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
@@ -3828,10 +3828,9 @@ function goToResult(seq, tab) {
 
 // Fermer le dropdown si clic ailleurs
 document.addEventListener('click', function(e) {
-  const wrapper = document.getElementById('search-wrapper');
-  if (wrapper && !wrapper.contains(e.target)) {
-    document.getElementById('search-dropdown').classList.remove('open');
-  }
+  const btn = document.getElementById('profile-btn');
+  const dropdown = document.getElementById('profile-dropdown');
+  if (!btn.contains(e.target) && !dropdown.contains(e.target)) closeProfileMenu();  }
 });
 
 // ===== ÉTOILES AVIS =====
@@ -4129,7 +4128,8 @@ checkUser();
 </script>
 
 <script>
-function toggleProfileMenu() {
+function toggleProfileMenu(e) {
+  e.stopPropagation();
   const dd = document.getElementById('profile-dropdown');
   dd.classList.toggle('open');
 }
