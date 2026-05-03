@@ -518,25 +518,40 @@
   <button class="nav-btn" onclick="showExtra('methodo');closeNav()">📐 Méthodo</button>
 
 <div class="profile-btn" onclick="toggleProfileMenu(event)" id="profile-btn">
-    <div class="profile-avatar" id="profile-avatar">?</div>
-      <div class="profile-email" id="profile-email">Non connecte</div>
-      <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
-        <span id="theme-icon">🌙</span>
-        <span id="theme-label">Mode clair</span>
-      </button>
-      <button class="dropdown-item" id="btn-connexion" onclick="window.location.href='/auth.html'">🔑 Se connecter</button>
-      <button class="dropdown-item danger" id="btn-deconnexion" style="display:none" onclick="logout()">🚪 Se deconnecter</button>
-    </div>
-  </div>
+  <div class="profile-avatar" id="profile-avatar">?</div>
+  <span id="profile-letter" style="font-size:0.75rem;color:var(--muted);">Connexion</span>
+</div>
 </nav>
 <div class="profile-dropdown" id="profile-dropdown">
-  <div class="profile-email" id="profile-email">Non connecte</div>
+
+  <div class="profile-email" id="profile-email" style="font-size:0.75rem;color:var(--muted);padding:6px 10px;border-bottom:1px solid var(--border);margin-bottom:4px;"></div>
+
+  <!-- Section profil (visible uniquement si connecté) -->
+  <div id="dropdown-profil-section" style="display:none;">
+    <div style="padding:8px 10px 4px;font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;">Mon profil</div>
+    <div style="padding:6px 10px 10px;border-bottom:1px solid var(--border);margin-bottom:4px;">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+        <div id="profil-avatar-big" style="width:36px;height:36px;border-radius:50%;background:rgba(124,106,247,.2);color:var(--accent1);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;">?</div>
+        <div>
+          <div id="profil-pseudo-display" style="font-size:0.82rem;font-weight:600;color:var(--text);">—</div>
+          <div id="profil-email-display" style="font-size:0.7rem;color:var(--muted);">—</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <input id="pseudo-input" type="text" maxlength="24" placeholder="Ton pseudo…" style="flex:1;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:5px 9px;border-radius:7px;font-size:0.78rem;font-family:'DM Sans',sans-serif;outline:none;" />
+        <button onclick="savePseudo()" style="background:rgba(124,106,247,.2);border:1px solid var(--accent1);color:var(--accent1);padding:5px 10px;border-radius:7px;font-size:0.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;">Sauver</button>
+      </div>
+      <div id="pseudo-msg" style="font-size:0.72rem;color:var(--accent3);margin-top:4px;display:none;">✓ Pseudo sauvegardé !</div>
+    </div>
+  </div>
+
   <button class="dropdown-item" onclick="toggleTheme(); closeProfileMenu();">
     <span id="theme-icon">🌙</span>
     <span id="theme-label">Mode clair</span>
   </button>
   <button class="dropdown-item" id="btn-connexion" onclick="window.location.href='/auth.html'">🔑 Se connecter</button>
-  <button class="dropdown-item danger" id="btn-deconnexion" style="display:none" onclick="logout()">🚪 Se deconnecter</button>
+  <button class="dropdown-item danger" id="btn-deconnexion" style="display:none" onclick="logout()">🚪 Se déconnecter</button>
+
 </div>
 
 <!-- HOME -->
@@ -4084,7 +4099,12 @@ window.submitAvis = async function() {
 async function checkUser() {
   const { data: { user } } = await supabase.auth.getUser();
   const avatar = document.getElementById('profile-avatar');
-  const email = document.getElementById('profile-email');
+  const avatarBig = document.getElementById('profil-avatar-big');
+  const letterEl = document.getElementById('profile-letter');
+  const emailEl = document.getElementById('profile-email');
+  const emailDisplay = document.getElementById('profil-email-display');
+  const pseudoDisplay = document.getElementById('profil-pseudo-display');
+  const profilSection = document.getElementById('dropdown-profil-section');
   const btnCo = document.getElementById('btn-connexion');
   const btnDeco = document.getElementById('btn-deconnexion');
   const loginNotice = document.getElementById('avis-login-notice');
@@ -4094,34 +4114,66 @@ async function checkUser() {
 
   if (user) {
     const initiale = user.email[0].toUpperCase();
-    avatar.textContent = initiale;
-    email.textContent = user.email;
+    if (avatar) avatar.textContent = initiale;
+    if (avatarBig) avatarBig.textContent = initiale;
+    if (letterEl) letterEl.textContent = initiale;
+    if (emailEl) emailEl.textContent = user.email;
+    if (emailDisplay) emailDisplay.textContent = user.email;
+    if (profilSection) profilSection.style.display = 'block';
     btnCo.style.display = 'none';
     btnDeco.style.display = 'flex';
-    // Formulaire visible
     if (loginNotice) loginNotice.style.display = 'none';
     if (submitBtn) submitBtn.style.display = 'inline-block';
     if (starsRow) starsRow.style.display = 'flex';
     if (textarea) textarea.style.display = 'block';
+
+    const { data: profil } = await supabase
+      .from('profils')
+      .select('pseudo')
+      .eq('user_id', user.id)
+      .single();
+    const pseudo = profil?.pseudo || user.email.split('@')[0];
+    if (pseudoDisplay) pseudoDisplay.textContent = pseudo;
+    const pseudoInput = document.getElementById('pseudo-input');
+    if (pseudoInput) pseudoInput.value = pseudo;
+
     await loadAndRenderProgress();
   } else {
-    avatar.textContent = '?';
-    email.textContent = 'Non connecte';
+    if (avatar) avatar.textContent = '?';
+    if (letterEl) letterEl.textContent = 'Connexion';
+    if (emailEl) emailEl.textContent = 'Non connecté';
+    if (profilSection) profilSection.style.display = 'none';
     btnCo.style.display = 'flex';
     btnDeco.style.display = 'none';
-    // Masquer le formulaire, afficher notice
     if (loginNotice) loginNotice.style.display = 'block';
     if (submitBtn) submitBtn.style.display = 'none';
     if (starsRow) starsRow.style.display = 'none';
     if (textarea) textarea.style.display = 'none';
   }
-  // Charger les avis dans tous les cas
   await loadAvis();
 }
 
 window.logout = async function() {
   await supabase.auth.signOut();
   window.location.reload();
+}
+
+window.savePseudo = async function() {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return;
+  const pseudo = document.getElementById('pseudo-input').value.trim();
+  if (!pseudo) return;
+
+  await supabase.from('profils').upsert({
+    user_id: user.id,
+    pseudo: pseudo,
+    updated_at: new Date().toISOString()
+  }, { onConflict: 'user_id' });
+
+  const display = document.getElementById('profil-pseudo-display');
+  if (display) display.textContent = pseudo;
+  const msg = document.getElementById('pseudo-msg');
+  if (msg) { msg.style.display = 'block'; setTimeout(() => msg.style.display = 'none', 2000); }
 }
 
 checkUser();
