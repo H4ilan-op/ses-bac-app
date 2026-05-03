@@ -519,7 +519,6 @@
 
 <div class="profile-btn" onclick="toggleProfileMenu(event)" id="profile-btn">
   <div class="profile-avatar" id="profile-avatar">?</div>
-  <span id="profile-letter" style="font-size:0.75rem;color:var(--muted);">Connexion</span>
 </div>
 </nav>
 <div class="profile-dropdown" id="profile-dropdown">
@@ -4051,7 +4050,7 @@ async function loadAvis() {
   list.innerHTML = data.map(a => {
     const stars = '★'.repeat(a.note) + '☆'.repeat(5 - a.note);
     const initiale = a.email ? a.email[0].toUpperCase() : '?';
-    const pseudo = a.email ? a.email.split('@')[0] : 'Anonyme';
+    const pseudo = a.pseudo || (a.email ? a.email.split('@')[0] : 'Anonyme');
     const date = new Date(a.created_at).toLocaleDateString('fr-FR', { day:'numeric', month:'short', year:'numeric' });
     return `<div class="avis-card">
       <div class="avis-card-header">
@@ -4078,12 +4077,15 @@ window.submitAvis = async function() {
   const btn = document.getElementById('avis-submit-btn');
   btn.disabled = true;
 
-  const { error } = await supabase.from('avis').insert({
+const { data: profil } = await supabase.from('profils').select('pseudo').eq('user_id', user.id).single();
+const pseudo = profil?.pseudo || user.email.split('@')[0];
+const { error } = await supabase.from('avis').insert({
     user_id: user.id,
     email: user.email,
+    pseudo: pseudo,
     note: selectedStars,
     commentaire: commentaire || null,
-  });
+});
 
   if (!error) {
     document.getElementById('avis-msg').style.display = 'inline';
@@ -4113,10 +4115,6 @@ async function checkUser() {
   const textarea = document.getElementById('avis-input');
 
   if (user) {
-    const initiale = user.email[0].toUpperCase();
-    if (avatar) avatar.textContent = initiale;
-    if (avatarBig) avatarBig.textContent = initiale;
-    if (letterEl) letterEl.textContent = initiale;
     if (emailEl) emailEl.textContent = user.email;
     if (emailDisplay) emailDisplay.textContent = user.email;
     if (profilSection) profilSection.style.display = 'block';
@@ -4133,9 +4131,9 @@ async function checkUser() {
       .eq('user_id', user.id)
       .single();
     const pseudo = profil?.pseudo || user.email.split('@')[0];
-    if (pseudoDisplay) pseudoDisplay.textContent = pseudo;
-    const pseudoInput = document.getElementById('pseudo-input');
-    if (pseudoInput) pseudoInput.value = pseudo;
+    const initiale = pseudo[0].toUpperCase();
+    if (avatar) avatar.textContent = initiale;
+    if (avatarBig) avatarBig.textContent = initiale;
 
     await loadAndRenderProgress();
   } else {
