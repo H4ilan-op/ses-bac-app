@@ -3844,7 +3844,12 @@ function goToResult(seq, tab) {
 document.addEventListener('click', function(e) {
   const btn = document.getElementById('profile-btn');
   const dropdown = document.getElementById('profile-dropdown');
-  if (!btn.contains(e.target) && !dropdown.contains(e.target)) closeProfileMenu();  }
+  if (!btn.contains(e.target) && !dropdown.contains(e.target)) closeProfileMenu();
+  const nav = document.getElementById('nav-links');
+  const burger = document.getElementById('hamburger');
+  if (nav && !nav.contains(e.target) && burger && !burger.contains(e.target)) {
+    closeNav();
+  }
 });
 
 // ===== ÉTOILES AVIS =====
